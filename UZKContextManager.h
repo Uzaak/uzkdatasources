@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Tiago Furlanetto. All rights reserved.
 //
 
+#import <CoreData/CoreData.h>
 #import <Foundation/Foundation.h>
 
 @interface UZKContextManager : NSObject
