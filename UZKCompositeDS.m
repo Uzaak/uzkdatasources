@@ -8,7 +8,7 @@
 
 #import "UZKCompositeDS.h"
 
-#import "PKDXCoreDataDS.h"
+#import "UZKCoreDataDS.h"
 #import "UITableViewCell+CustomObject.h"
 #import "UICollectionViewCell+CustomObject.h"
 
