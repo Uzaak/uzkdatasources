@@ -1,5 +1,5 @@
 //
-//  PKDXCompositeDS.m
+//  UZKCompositeDS.m
 //  Pokedex
 //
 //  Created by Tiago Felisoni Furlanetto on 04/09/13.
@@ -49,10 +49,10 @@
     id ds = [self dataSourceForSection:indexPath.section];
     UICollectionViewCell * cell;
     
-    if ( [ds isKindOfClass:[PKDXCoreDataDS class]] )
+    if ( [ds isKindOfClass:[UZKCoreDataDS class]] )
     {
     
-        PKDXCoreDataDS * coreds = [self dataSourceForSection:indexPath.section];
+        UZKCoreDataDS * coreds = [self dataSourceForSection:indexPath.section];
         NSString * identifier = coreds.cellIdentifier;
 
         cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
@@ -94,7 +94,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    PKDXCoreDataDS * ds = [self dataSourceForSection:indexPath.section];
+    UZKCoreDataDS * ds = [self dataSourceForSection:indexPath.section];
     NSString * identifier = ds.cellIdentifier;
     UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
     
