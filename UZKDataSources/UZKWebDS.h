@@ -15,11 +15,6 @@
 @property (nonatomic, weak) IBOutlet UICollectionView * collectionView;
 
 @property (nonatomic, strong) NSString * cellIdentifier;
-@property (nonatomic, strong) void (^cellDequeueBlock)(id);
 @property (nonatomic, strong) IBOutlet id<UZKWebDSClient> client;
-
-@property (nonatomic, strong) NSDictionary * parameters;
-
-@property (nonatomic) NSInteger sectionIndexOffset;
 
 @end

@@ -52,7 +52,7 @@
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     if (section == [pages count]) {
-        return 1;
+        return 2;
     }
     
     return [[pages objectAtIndex:section] count];
@@ -64,21 +64,14 @@
         return [collectionView dequeueReusableCellWithReuseIdentifier:@"UZKWebDSNoResultsCell" forIndexPath:indexPath];
     }
     
-    if (indexPath.section - self.sectionIndexOffset >= [pages count]) {
+    if (indexPath.section == [pages count]) {
         // Posterga o "load", para evitar condições de corrida ao "fritar a tela" que travavam a carga da próxima página
         [self performSelectorOnMainThread:@selector(loadLookPage:) withObject:@([pages count]) waitUntilDone:NO];
         return [collectionView dequeueReusableCellWithReuseIdentifier:@"UZKWebDSLoadMoreCell" forIndexPath:indexPath];
     }
     
-    UICollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:self.cellIdentifier forIndexPath:indexPath];
-
-    cell.customObject = [[pages objectAtIndex:indexPath.section - self.sectionIndexOffset] objectAtIndex:indexPath.row];
-    
-    if ( self.cellDequeueBlock )
-    {
-        self.cellDequeueBlock(cell);
-    }
-
+    UICollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
+    cell.customObject = [[pages objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
     return cell;
 }
 
@@ -118,7 +111,7 @@
     };
 
     [self.client requestPage:number + 1
-              withParameters:self.parameters
+              withParameters:@{@"limit" : @(20)}
                 successBlock:successBlock];
 }
 
@@ -127,19 +120,19 @@
 - (void)animatePageInsertion:(NSNumber *)page
 {
     [self updateCollectionAnimator];
-    [self.collectionView insertSections:[NSIndexSet indexSetWithIndex:[page integerValue] + self.sectionIndexOffset]];
+    [self.collectionView insertSections:[NSIndexSet indexSetWithIndex:[page integerValue]]];
 }
 
 - (void)animateLastPage
 {
     [self updateCollectionAnimator];
-    [self.collectionView deleteSections:[NSIndexSet indexSetWithIndex:[pages count] + self.sectionIndexOffset]];
+    [self.collectionView deleteSections:[NSIndexSet indexSetWithIndex:[pages count]]];
 }
 
 - (void)animateNothingReallyPage
 {
     [self updateCollectionAnimator];
-    [self.collectionView reloadSections:[NSIndexSet indexSetWithIndex:0 + self.sectionIndexOffset]];
+    [self.collectionView reloadSections:[NSIndexSet indexSetWithIndex:0]];
 }
 
 - (void)updateCollectionAnimator
