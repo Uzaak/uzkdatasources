@@ -22,4 +22,6 @@
 
 @property (nonatomic) NSInteger sectionIndexOffset;
 
+- (void)resetData;
+
 @end

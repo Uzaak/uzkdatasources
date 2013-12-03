@@ -42,6 +42,7 @@
     [_collectionView registerNib:[UINib nibWithNibName:@"UZKWebDSLoadMoreCell" bundle:nil] forCellWithReuseIdentifier:@"UZKWebDSNoResultsCell"];
 }
 
+
 #pragma mark COLLECTION
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
@@ -148,6 +149,15 @@
     {
         [self.collectionView.collectionViewLayout performSelector:@selector(updateAnimator)];
     }
+}
+
+
+#pragma mark Start All Over
+
+- (void)resetData
+{
+    pages = [NSMutableArray new];
+    finished = NO;
 }
 
 @end
