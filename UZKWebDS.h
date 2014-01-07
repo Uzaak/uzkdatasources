@@ -23,6 +23,8 @@
 
 @property (nonatomic) NSInteger sectionIndexOffset;
 
+- (void)setSectionData:(NSArray *)dataForSection0, ... NS_REQUIRES_NIL_TERMINATION;
+
 - (void)resetData;
 
 @end

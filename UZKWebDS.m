@@ -42,6 +42,19 @@
     [_collectionView registerNib:[UINib nibWithNibName:@"UZKWebDSLoadMoreCell" bundle:nil] forCellWithReuseIdentifier:@"UZKWebDSNoResultsCell"];
 }
 
+- (void)setSectionData:(NSArray *)dataForSection0, ... NS_REQUIRES_NIL_TERMINATION
+{
+    [self resetData];
+    
+    va_list args;
+    va_start(args, dataForSection0);
+    for (NSArray * dataForSection = dataForSection0; dataForSection != nil; dataForSection = va_arg(args, NSArray *))
+    {
+        [pages addObject:dataForSection];
+    }
+    va_end(args);
+}
+
 
 #pragma mark COLLECTION
 
