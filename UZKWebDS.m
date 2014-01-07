@@ -72,9 +72,19 @@
     }
     
     id customObject = [[pages objectAtIndex:indexPath.section - self.sectionIndexOffset] objectAtIndex:indexPath.row];
-    NSString * cellIdentifier = self.cellIdentifierBlock(customObject);
+    NSString * cellIdentifier;
+
+    if ( self.cellIdentifierBlock )
+    {
+        cellIdentifier = self.cellIdentifierBlock(customObject);
+    }
+
+    if ( !cellIdentifier ) //previous block can return nil
+    {
+        cellIdentifier = self.cellIdentifier;
+    }
     
-    UICollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:self.cellIdentifier forIndexPath:indexPath];
+    UICollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
 
     cell.customObject = customObject;
     
