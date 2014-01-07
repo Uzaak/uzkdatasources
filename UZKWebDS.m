@@ -71,9 +71,12 @@
         return [collectionView dequeueReusableCellWithReuseIdentifier:@"UZKWebDSLoadMoreCell" forIndexPath:indexPath];
     }
     
+    id customObject = [[pages objectAtIndex:indexPath.section - self.sectionIndexOffset] objectAtIndex:indexPath.row];
+    NSString * cellIdentifier = self.cellIdentifierBlock(customObject);
+    
     UICollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:self.cellIdentifier forIndexPath:indexPath];
 
-    cell.customObject = [[pages objectAtIndex:indexPath.section - self.sectionIndexOffset] objectAtIndex:indexPath.row];
+    cell.customObject = customObject;
     
     if ( self.cellDequeueBlock )
     {
