@@ -25,6 +25,8 @@
 
 - (void)setSectionData:(NSArray *)dataForSection0, ... NS_REQUIRES_NIL_TERMINATION;
 
+- (id)objectForIndexPath:(NSIndexPath *)indexPath;
+
 - (void)resetData;
 
 @end

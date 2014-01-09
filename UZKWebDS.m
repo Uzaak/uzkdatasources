@@ -42,6 +42,9 @@
     [_collectionView registerNib:[UINib nibWithNibName:@"UZKWebDSLoadMoreCell" bundle:nil] forCellWithReuseIdentifier:@"UZKWebDSNoResultsCell"];
 }
 
+
+#pragma mark Initial Stuff
+
 - (void)setSectionData:(NSArray *)dataForSection0, ... NS_REQUIRES_NIL_TERMINATION
 {
     [self resetData];
@@ -84,7 +87,7 @@
         return [collectionView dequeueReusableCellWithReuseIdentifier:@"UZKWebDSLoadMoreCell" forIndexPath:indexPath];
     }
     
-    id customObject = [[pages objectAtIndex:indexPath.section - self.sectionIndexOffset] objectAtIndex:indexPath.row];
+    id customObject = [self objectForIndexPath:indexPath];
     NSString * cellIdentifier;
 
     if ( self.cellIdentifierBlock )
@@ -108,6 +111,15 @@
 
     return cell;
 }
+
+
+#pragma mark Custom Object Management
+
+- (id)objectForIndexPath:(NSIndexPath *)indexPath
+{
+    return [[pages objectAtIndex:indexPath.section - self.sectionIndexOffset] objectAtIndex:indexPath.row];
+}
+
 
 #pragma mark Async loading
 
