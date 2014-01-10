@@ -39,7 +39,7 @@
     
     [_collectionView registerNib:[UINib nibWithNibName:@"UZKWebDSLoadMoreCell" bundle:nil] forCellWithReuseIdentifier:@"UZKWebDSLoadMoreCell"];
     
-    [_collectionView registerNib:[UINib nibWithNibName:@"UZKWebDSLoadMoreCell" bundle:nil] forCellWithReuseIdentifier:@"UZKWebDSNoResultsCell"];
+    [_collectionView registerNib:[UINib nibWithNibName:@"UZKWebDSNoResultsCell" bundle:nil] forCellWithReuseIdentifier:@"UZKWebDSNoResultsCell"];
 }
 
 
