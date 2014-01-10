@@ -14,6 +14,8 @@
 @property (nonatomic, strong) NSString * entityName;
 
 @property (nonatomic, strong) NSString * cellIdentifier;
+@property (nonatomic, strong) NSString * (^reusableViewIdentifierBlock)(NSString * kind, NSIndexPath * indexPath);
+@property (nonatomic, strong) void (^reusableViewDequeueBlock)(UICollectionReusableView * reusableView);
 
 @property (nonatomic, strong) NSPredicate * predicate;
 @property (nonatomic, strong) NSArray * sortDescriptors;

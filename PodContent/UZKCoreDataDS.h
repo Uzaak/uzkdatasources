@@ -21,4 +21,6 @@
 
 @property (nonatomic, readonly) NSFetchedResultsController * fetchedResultsController;
 
+- (NSIndexPath *)indexPathForObject:(id)object;
+
 @end
