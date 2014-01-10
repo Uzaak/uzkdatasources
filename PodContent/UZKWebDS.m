@@ -39,7 +39,7 @@
     
     [_collectionView registerNib:[UINib nibWithNibName:@"UZKWebDSLoadMoreCell" bundle:nil] forCellWithReuseIdentifier:@"UZKWebDSLoadMoreCell"];
     
-    [_collectionView registerNib:[UINib nibWithNibName:@"UZKWebDSLoadMoreCell" bundle:nil] forCellWithReuseIdentifier:@"UZKWebDSNoResultsCell"];
+    [_collectionView registerNib:[UINib nibWithNibName:@"UZKWebDSNoResultsCell" bundle:nil] forCellWithReuseIdentifier:@"UZKWebDSNoResultsCell"];
 }
 
 
@@ -83,7 +83,7 @@
     
     if (indexPath.section - self.sectionIndexOffset >= [pages count]) {
         // Posterga o "load", para evitar condições de corrida ao "fritar a tela" que travavam a carga da próxima página
-        [self performSelectorOnMainThread:@selector(loadLookPage:) withObject:@([pages count]) waitUntilDone:NO];
+        [self performSelectorOnMainThread:@selector(loadPage:) withObject:@([pages count]) waitUntilDone:NO];
         return [collectionView dequeueReusableCellWithReuseIdentifier:@"UZKWebDSLoadMoreCell" forIndexPath:indexPath];
     }
     
@@ -123,31 +123,31 @@
 
 #pragma mark Async loading
 
-- (void)loadLookPage:(NSNumber *)n
+- (void)loadPage:(NSNumber *)n
 {
     if (loading) return;
     loading = YES;
     
     int number = [n intValue];
     
-    void(^successBlock)(NSArray * look) = ^(NSArray * look)
+    void(^successBlock)(NSArray * stuff) = ^(NSArray * stuff)
     {
         [refreshControl endRefreshing];
         
-        if (![look count] && number == 0) {
+        if (![stuff count] && number == 0) {
             // Primeira página sem resultados
             finished = YES;
             [self performSelectorOnMainThread:@selector(animateNothingReallyPage)
                                    withObject:nil
                                 waitUntilDone:NO];
-        } else if (![look count]) {
+        } else if (![stuff count]) {
             // Última página
             finished = YES;
             [self performSelectorOnMainThread:@selector(animateLastPage)
                                    withObject:nil
                                 waitUntilDone:NO];
         } else {
-            [pages addObject:look];
+            [pages addObject:stuff];
             [self performSelectorOnMainThread:@selector(animatePageInsertion:)
                                    withObject:n
                                 waitUntilDone:NO];
