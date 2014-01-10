@@ -1,0 +1,534 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9700000418804DC900F9BC64 /* UICollectionViewCell+CustomObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 9700FFF718804DC900F9BC64 /* UICollectionViewCell+CustomObject.m */; };
+		9700000518804DC900F9BC64 /* UITableViewCell+CustomObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 9700FFF918804DC900F9BC64 /* UITableViewCell+CustomObject.m */; };
+		9700000618804DC900F9BC64 /* UZKCompositeDS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9700FFFB18804DC900F9BC64 /* UZKCompositeDS.m */; };
+		9700000718804DC900F9BC64 /* UZKContextManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9700FFFD18804DC900F9BC64 /* UZKContextManager.m */; };
+		9700000818804DC900F9BC64 /* UZKCoreDataDS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9700FFFF18804DC900F9BC64 /* UZKCoreDataDS.m */; };
+		9700000918804DC900F9BC64 /* UZKWebDS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9700000118804DC900F9BC64 /* UZKWebDS.m */; };
+		9700000A18804DC900F9BC64 /* UZKWebDSLoadMoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9700000318804DC900F9BC64 /* UZKWebDSLoadMoreCell.xib */; };
+		9700000E18804EF700F9BC64 /* UZKCollectionTextReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9700000D18804EF700F9BC64 /* UZKCollectionTextReusableView.m */; };
+		9700FFC218804CA100F9BC64 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9700FFC118804CA100F9BC64 /* Foundation.framework */; };
+		9700FFC418804CA100F9BC64 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9700FFC318804CA100F9BC64 /* CoreGraphics.framework */; };
+		9700FFC618804CA100F9BC64 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9700FFC518804CA100F9BC64 /* UIKit.framework */; };
+		9700FFCC18804CA100F9BC64 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9700FFCA18804CA100F9BC64 /* InfoPlist.strings */; };
+		9700FFCE18804CA100F9BC64 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9700FFCD18804CA100F9BC64 /* main.m */; };
+		9700FFD218804CA100F9BC64 /* UZKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9700FFD118804CA100F9BC64 /* UZKAppDelegate.m */; };
+		9700FFD518804CA100F9BC64 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9700FFD318804CA100F9BC64 /* Main.storyboard */; };
+		9700FFD818804CA100F9BC64 /* UZKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9700FFD718804CA100F9BC64 /* UZKViewController.m */; };
+		9700FFDA18804CA100F9BC64 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9700FFD918804CA100F9BC64 /* Images.xcassets */; };
+		9700FFE118804CA100F9BC64 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9700FFE018804CA100F9BC64 /* XCTest.framework */; };
+		9700FFE218804CA100F9BC64 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9700FFC118804CA100F9BC64 /* Foundation.framework */; };
+		9700FFE318804CA100F9BC64 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9700FFC518804CA100F9BC64 /* UIKit.framework */; };
+		9700FFEB18804CA100F9BC64 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9700FFE918804CA100F9BC64 /* InfoPlist.strings */; };
+		9700FFED18804CA100F9BC64 /* UZKDataSourcesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9700FFEC18804CA100F9BC64 /* UZKDataSourcesTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9700FFE418804CA100F9BC64 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9700FFB618804CA100F9BC64 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9700FFBD18804CA100F9BC64;
+			remoteInfo = UZKDataSources;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		9700000018804DC900F9BC64 /* UZKWebDS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZKWebDS.h; sourceTree = "<group>"; };
+		9700000118804DC900F9BC64 /* UZKWebDS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UZKWebDS.m; sourceTree = "<group>"; };
+		9700000218804DC900F9BC64 /* UZKWebDSClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZKWebDSClient.h; sourceTree = "<group>"; };
+		9700000318804DC900F9BC64 /* UZKWebDSLoadMoreCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UZKWebDSLoadMoreCell.xib; sourceTree = "<group>"; };
+		9700000C18804EF700F9BC64 /* UZKCollectionTextReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UZKCollectionTextReusableView.h; path = PodContent/UZKCollectionTextReusableView.h; sourceTree = SOURCE_ROOT; };
+		9700000D18804EF700F9BC64 /* UZKCollectionTextReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UZKCollectionTextReusableView.m; path = PodContent/UZKCollectionTextReusableView.m; sourceTree = SOURCE_ROOT; };
+		9700FFBE18804CA100F9BC64 /* UZKDataSources.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UZKDataSources.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9700FFC118804CA100F9BC64 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		9700FFC318804CA100F9BC64 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		9700FFC518804CA100F9BC64 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		9700FFC918804CA100F9BC64 /* UZKDataSources-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UZKDataSources-Info.plist"; sourceTree = "<group>"; };
+		9700FFCB18804CA100F9BC64 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9700FFCD18804CA100F9BC64 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9700FFCF18804CA100F9BC64 /* UZKDataSources-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UZKDataSources-Prefix.pch"; sourceTree = "<group>"; };
+		9700FFD018804CA100F9BC64 /* UZKAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UZKAppDelegate.h; sourceTree = "<group>"; };
+		9700FFD118804CA100F9BC64 /* UZKAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UZKAppDelegate.m; sourceTree = "<group>"; };
+		9700FFD418804CA100F9BC64 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9700FFD618804CA100F9BC64 /* UZKViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UZKViewController.h; sourceTree = "<group>"; };
+		9700FFD718804CA100F9BC64 /* UZKViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UZKViewController.m; sourceTree = "<group>"; };
+		9700FFD918804CA100F9BC64 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		9700FFDF18804CA100F9BC64 /* UZKDataSourcesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UZKDataSourcesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9700FFE018804CA100F9BC64 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		9700FFE818804CA100F9BC64 /* UZKDataSourcesTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UZKDataSourcesTests-Info.plist"; sourceTree = "<group>"; };
+		9700FFEA18804CA100F9BC64 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9700FFEC18804CA100F9BC64 /* UZKDataSourcesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UZKDataSourcesTests.m; sourceTree = "<group>"; };
+		9700FFF618804DC900F9BC64 /* UICollectionViewCell+CustomObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionViewCell+CustomObject.h"; sourceTree = "<group>"; };
+		9700FFF718804DC900F9BC64 /* UICollectionViewCell+CustomObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionViewCell+CustomObject.m"; sourceTree = "<group>"; };
+		9700FFF818804DC900F9BC64 /* UITableViewCell+CustomObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+CustomObject.h"; sourceTree = "<group>"; };
+		9700FFF918804DC900F9BC64 /* UITableViewCell+CustomObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+CustomObject.m"; sourceTree = "<group>"; };
+		9700FFFA18804DC900F9BC64 /* UZKCompositeDS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZKCompositeDS.h; sourceTree = "<group>"; };
+		9700FFFB18804DC900F9BC64 /* UZKCompositeDS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UZKCompositeDS.m; sourceTree = "<group>"; };
+		9700FFFC18804DC900F9BC64 /* UZKContextManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZKContextManager.h; sourceTree = "<group>"; };
+		9700FFFD18804DC900F9BC64 /* UZKContextManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UZKContextManager.m; sourceTree = "<group>"; };
+		9700FFFE18804DC900F9BC64 /* UZKCoreDataDS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZKCoreDataDS.h; sourceTree = "<group>"; };
+		9700FFFF18804DC900F9BC64 /* UZKCoreDataDS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UZKCoreDataDS.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9700FFBB18804CA100F9BC64 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9700FFC418804CA100F9BC64 /* CoreGraphics.framework in Frameworks */,
+				9700FFC618804CA100F9BC64 /* UIKit.framework in Frameworks */,
+				9700FFC218804CA100F9BC64 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9700FFDC18804CA100F9BC64 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9700FFE118804CA100F9BC64 /* XCTest.framework in Frameworks */,
+				9700FFE318804CA100F9BC64 /* UIKit.framework in Frameworks */,
+				9700FFE218804CA100F9BC64 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9700000B18804DD400F9BC64 /* PodContent Goes Here */ = {
+			isa = PBXGroup;
+			children = (
+				9700FFF618804DC900F9BC64 /* UICollectionViewCell+CustomObject.h */,
+				9700FFF718804DC900F9BC64 /* UICollectionViewCell+CustomObject.m */,
+				9700FFF818804DC900F9BC64 /* UITableViewCell+CustomObject.h */,
+				9700FFF918804DC900F9BC64 /* UITableViewCell+CustomObject.m */,
+				9700FFFA18804DC900F9BC64 /* UZKCompositeDS.h */,
+				9700FFFB18804DC900F9BC64 /* UZKCompositeDS.m */,
+				9700FFFC18804DC900F9BC64 /* UZKContextManager.h */,
+				9700FFFD18804DC900F9BC64 /* UZKContextManager.m */,
+				9700FFFE18804DC900F9BC64 /* UZKCoreDataDS.h */,
+				9700FFFF18804DC900F9BC64 /* UZKCoreDataDS.m */,
+				9700000018804DC900F9BC64 /* UZKWebDS.h */,
+				9700000118804DC900F9BC64 /* UZKWebDS.m */,
+				9700000218804DC900F9BC64 /* UZKWebDSClient.h */,
+				9700000318804DC900F9BC64 /* UZKWebDSLoadMoreCell.xib */,
+				9700000C18804EF700F9BC64 /* UZKCollectionTextReusableView.h */,
+				9700000D18804EF700F9BC64 /* UZKCollectionTextReusableView.m */,
+			);
+			name = "PodContent Goes Here";
+			sourceTree = "<group>";
+		};
+		9700FFB518804CA100F9BC64 = {
+			isa = PBXGroup;
+			children = (
+				9700FFC718804CA100F9BC64 /* UZKDataSources */,
+				9700FFE618804CA100F9BC64 /* UZKDataSourcesTests */,
+				9700FFC018804CA100F9BC64 /* Frameworks */,
+				9700FFBF18804CA100F9BC64 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9700FFBF18804CA100F9BC64 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9700FFBE18804CA100F9BC64 /* UZKDataSources.app */,
+				9700FFDF18804CA100F9BC64 /* UZKDataSourcesTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9700FFC018804CA100F9BC64 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9700FFC118804CA100F9BC64 /* Foundation.framework */,
+				9700FFC318804CA100F9BC64 /* CoreGraphics.framework */,
+				9700FFC518804CA100F9BC64 /* UIKit.framework */,
+				9700FFE018804CA100F9BC64 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9700FFC718804CA100F9BC64 /* UZKDataSources */ = {
+			isa = PBXGroup;
+			children = (
+				9700000B18804DD400F9BC64 /* PodContent Goes Here */,
+				9700FFD018804CA100F9BC64 /* UZKAppDelegate.h */,
+				9700FFD118804CA100F9BC64 /* UZKAppDelegate.m */,
+				9700FFD318804CA100F9BC64 /* Main.storyboard */,
+				9700FFD618804CA100F9BC64 /* UZKViewController.h */,
+				9700FFD718804CA100F9BC64 /* UZKViewController.m */,
+				9700FFD918804CA100F9BC64 /* Images.xcassets */,
+				9700FFC818804CA100F9BC64 /* Supporting Files */,
+			);
+			path = UZKDataSources;
+			sourceTree = "<group>";
+		};
+		9700FFC818804CA100F9BC64 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9700FFC918804CA100F9BC64 /* UZKDataSources-Info.plist */,
+				9700FFCA18804CA100F9BC64 /* InfoPlist.strings */,
+				9700FFCD18804CA100F9BC64 /* main.m */,
+				9700FFCF18804CA100F9BC64 /* UZKDataSources-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9700FFE618804CA100F9BC64 /* UZKDataSourcesTests */ = {
+			isa = PBXGroup;
+			children = (
+				9700FFEC18804CA100F9BC64 /* UZKDataSourcesTests.m */,
+				9700FFE718804CA100F9BC64 /* Supporting Files */,
+			);
+			path = UZKDataSourcesTests;
+			sourceTree = "<group>";
+		};
+		9700FFE718804CA100F9BC64 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9700FFE818804CA100F9BC64 /* UZKDataSourcesTests-Info.plist */,
+				9700FFE918804CA100F9BC64 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9700FFBD18804CA100F9BC64 /* UZKDataSources */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9700FFF018804CA100F9BC64 /* Build configuration list for PBXNativeTarget "UZKDataSources" */;
+			buildPhases = (
+				9700FFBA18804CA100F9BC64 /* Sources */,
+				9700FFBB18804CA100F9BC64 /* Frameworks */,
+				9700FFBC18804CA100F9BC64 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UZKDataSources;
+			productName = UZKDataSources;
+			productReference = 9700FFBE18804CA100F9BC64 /* UZKDataSources.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9700FFDE18804CA100F9BC64 /* UZKDataSourcesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9700FFF318804CA100F9BC64 /* Build configuration list for PBXNativeTarget "UZKDataSourcesTests" */;
+			buildPhases = (
+				9700FFDB18804CA100F9BC64 /* Sources */,
+				9700FFDC18804CA100F9BC64 /* Frameworks */,
+				9700FFDD18804CA100F9BC64 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9700FFE518804CA100F9BC64 /* PBXTargetDependency */,
+			);
+			name = UZKDataSourcesTests;
+			productName = UZKDataSourcesTests;
+			productReference = 9700FFDF18804CA100F9BC64 /* UZKDataSourcesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9700FFB618804CA100F9BC64 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = UZK;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = Uzaak;
+				TargetAttributes = {
+					9700FFDE18804CA100F9BC64 = {
+						TestTargetID = 9700FFBD18804CA100F9BC64;
+					};
+				};
+			};
+			buildConfigurationList = 9700FFB918804CA100F9BC64 /* Build configuration list for PBXProject "UZKDataSources" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9700FFB518804CA100F9BC64;
+			productRefGroup = 9700FFBF18804CA100F9BC64 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9700FFBD18804CA100F9BC64 /* UZKDataSources */,
+				9700FFDE18804CA100F9BC64 /* UZKDataSourcesTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9700FFBC18804CA100F9BC64 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9700FFDA18804CA100F9BC64 /* Images.xcassets in Resources */,
+				9700FFCC18804CA100F9BC64 /* InfoPlist.strings in Resources */,
+				9700FFD518804CA100F9BC64 /* Main.storyboard in Resources */,
+				9700000A18804DC900F9BC64 /* UZKWebDSLoadMoreCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9700FFDD18804CA100F9BC64 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9700FFEB18804CA100F9BC64 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9700FFBA18804CA100F9BC64 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9700000E18804EF700F9BC64 /* UZKCollectionTextReusableView.m in Sources */,
+				9700000718804DC900F9BC64 /* UZKContextManager.m in Sources */,
+				9700000418804DC900F9BC64 /* UICollectionViewCell+CustomObject.m in Sources */,
+				9700FFD818804CA100F9BC64 /* UZKViewController.m in Sources */,
+				9700000518804DC900F9BC64 /* UITableViewCell+CustomObject.m in Sources */,
+				9700000618804DC900F9BC64 /* UZKCompositeDS.m in Sources */,
+				9700FFCE18804CA100F9BC64 /* main.m in Sources */,
+				9700000818804DC900F9BC64 /* UZKCoreDataDS.m in Sources */,
+				9700FFD218804CA100F9BC64 /* UZKAppDelegate.m in Sources */,
+				9700000918804DC900F9BC64 /* UZKWebDS.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9700FFDB18804CA100F9BC64 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9700FFED18804CA100F9BC64 /* UZKDataSourcesTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9700FFE518804CA100F9BC64 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9700FFBD18804CA100F9BC64 /* UZKDataSources */;
+			targetProxy = 9700FFE418804CA100F9BC64 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9700FFCA18804CA100F9BC64 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9700FFCB18804CA100F9BC64 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		9700FFD318804CA100F9BC64 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9700FFD418804CA100F9BC64 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9700FFE918804CA100F9BC64 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9700FFEA18804CA100F9BC64 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9700FFEE18804CA100F9BC64 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		9700FFEF18804CA100F9BC64 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9700FFF118804CA100F9BC64 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "UZKDataSources/UZKDataSources-Prefix.pch";
+				INFOPLIST_FILE = "UZKDataSources/UZKDataSources-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		9700FFF218804CA100F9BC64 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "UZKDataSources/UZKDataSources-Prefix.pch";
+				INFOPLIST_FILE = "UZKDataSources/UZKDataSources-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		9700FFF418804CA100F9BC64 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/UZKDataSources.app/UZKDataSources";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "UZKDataSources/UZKDataSources-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "UZKDataSourcesTests/UZKDataSourcesTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		9700FFF518804CA100F9BC64 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/UZKDataSources.app/UZKDataSources";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "UZKDataSources/UZKDataSources-Prefix.pch";
+				INFOPLIST_FILE = "UZKDataSourcesTests/UZKDataSourcesTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9700FFB918804CA100F9BC64 /* Build configuration list for PBXProject "UZKDataSources" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9700FFEE18804CA100F9BC64 /* Debug */,
+				9700FFEF18804CA100F9BC64 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9700FFF018804CA100F9BC64 /* Build configuration list for PBXNativeTarget "UZKDataSources" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9700FFF118804CA100F9BC64 /* Debug */,
+				9700FFF218804CA100F9BC64 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9700FFF318804CA100F9BC64 /* Build configuration list for PBXNativeTarget "UZKDataSourcesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9700FFF418804CA100F9BC64 /* Debug */,
+				9700FFF518804CA100F9BC64 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9700FFB618804CA100F9BC64 /* Project object */;
+}
