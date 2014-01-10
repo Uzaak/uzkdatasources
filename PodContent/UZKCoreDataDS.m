@@ -141,6 +141,11 @@
     return nil;
 }
 
+- (NSIndexPath *)indexPathForObject:(id)object
+{
+    return [self.fetchedResultsController indexPathForObject:object];
+}
+
 #pragma mark CoreData
 
 - (NSFetchedResultsController *)fetchedResultsController
