@@ -86,7 +86,8 @@
     
     if ( self.reusableViewDequeueBlock )
     {
-        self.reusableViewDequeueBlock(reusableView);
+        NSString * textForReusableView = [self titleForHeaderInSection:indexPath.section];
+        self.reusableViewDequeueBlock(reusableView, textForReusableView);
     }
 
     return reusableView;

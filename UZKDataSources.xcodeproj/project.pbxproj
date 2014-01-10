@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		9700000E18804EF700F9BC64 /* UZKCollectionTextReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9700000D18804EF700F9BC64 /* UZKCollectionTextReusableView.m */; };
-		970000101880524400F9BC64 /* UZKDataSources.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 9700000F1880524400F9BC64 /* UZKDataSources.podspec */; };
 		970000121880528600F9BC64 /* UZKWebDSNoResultsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 970000111880528600F9BC64 /* UZKWebDSNoResultsCell.xib */; };
 		970000211880754700F9BC64 /* UICollectionViewCell+CustomObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 970000141880754700F9BC64 /* UICollectionViewCell+CustomObject.m */; };
 		970000221880754700F9BC64 /* UITableViewCell+CustomObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 970000161880754700F9BC64 /* UITableViewCell+CustomObject.m */; };
@@ -17,6 +16,7 @@
 		970000251880754700F9BC64 /* UZKCoreDataDS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9700001C1880754700F9BC64 /* UZKCoreDataDS.m */; };
 		970000261880754700F9BC64 /* UZKWebDS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9700001E1880754700F9BC64 /* UZKWebDS.m */; };
 		970000271880754700F9BC64 /* UZKWebDSLoadMoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 970000201880754700F9BC64 /* UZKWebDSLoadMoreCell.xib */; };
+		9700002918807A7400F9BC64 /* UZKDataSources.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 9700002818807A7400F9BC64 /* UZKDataSources.podspec */; };
 		9700FFC218804CA100F9BC64 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9700FFC118804CA100F9BC64 /* Foundation.framework */; };
 		9700FFC418804CA100F9BC64 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9700FFC318804CA100F9BC64 /* CoreGraphics.framework */; };
 		9700FFC618804CA100F9BC64 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9700FFC518804CA100F9BC64 /* UIKit.framework */; };
@@ -46,7 +46,6 @@
 /* Begin PBXFileReference section */
 		9700000C18804EF700F9BC64 /* UZKCollectionTextReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UZKCollectionTextReusableView.h; path = PodContent/UZKCollectionTextReusableView.h; sourceTree = SOURCE_ROOT; };
 		9700000D18804EF700F9BC64 /* UZKCollectionTextReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UZKCollectionTextReusableView.m; path = PodContent/UZKCollectionTextReusableView.m; sourceTree = SOURCE_ROOT; };
-		9700000F1880524400F9BC64 /* UZKDataSources.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UZKDataSources.podspec; sourceTree = "<group>"; };
 		970000111880528600F9BC64 /* UZKWebDSNoResultsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UZKWebDSNoResultsCell.xib; path = PodContent/UZKWebDSNoResultsCell.xib; sourceTree = SOURCE_ROOT; };
 		970000131880754700F9BC64 /* UICollectionViewCell+CustomObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UICollectionViewCell+CustomObject.h"; path = "PodContent/UICollectionViewCell+CustomObject.h"; sourceTree = SOURCE_ROOT; };
 		970000141880754700F9BC64 /* UICollectionViewCell+CustomObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UICollectionViewCell+CustomObject.m"; path = "PodContent/UICollectionViewCell+CustomObject.m"; sourceTree = SOURCE_ROOT; };
@@ -62,6 +61,7 @@
 		9700001E1880754700F9BC64 /* UZKWebDS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UZKWebDS.m; path = PodContent/UZKWebDS.m; sourceTree = SOURCE_ROOT; };
 		9700001F1880754700F9BC64 /* UZKWebDSClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UZKWebDSClient.h; path = PodContent/UZKWebDSClient.h; sourceTree = SOURCE_ROOT; };
 		970000201880754700F9BC64 /* UZKWebDSLoadMoreCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UZKWebDSLoadMoreCell.xib; path = PodContent/UZKWebDSLoadMoreCell.xib; sourceTree = SOURCE_ROOT; };
+		9700002818807A7400F9BC64 /* UZKDataSources.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UZKDataSources.podspec; sourceTree = SOURCE_ROOT; };
 		9700FFBE18804CA100F9BC64 /* UZKDataSources.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UZKDataSources.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9700FFC118804CA100F9BC64 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9700FFC318804CA100F9BC64 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -164,7 +164,7 @@
 		9700FFC718804CA100F9BC64 /* UZKDataSources */ = {
 			isa = PBXGroup;
 			children = (
-				9700000F1880524400F9BC64 /* UZKDataSources.podspec */,
+				9700002818807A7400F9BC64 /* UZKDataSources.podspec */,
 				9700000B18804DD400F9BC64 /* PodContent Goes Here */,
 				9700FFD018804CA100F9BC64 /* UZKAppDelegate.h */,
 				9700FFD118804CA100F9BC64 /* UZKAppDelegate.m */,
@@ -283,10 +283,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9700002918807A7400F9BC64 /* UZKDataSources.podspec in Resources */,
 				970000121880528600F9BC64 /* UZKWebDSNoResultsCell.xib in Resources */,
 				970000271880754700F9BC64 /* UZKWebDSLoadMoreCell.xib in Resources */,
 				9700FFDA18804CA100F9BC64 /* Images.xcassets in Resources */,
-				970000101880524400F9BC64 /* UZKDataSources.podspec in Resources */,
 				9700FFCC18804CA100F9BC64 /* InfoPlist.strings in Resources */,
 				9700FFD518804CA100F9BC64 /* Main.storyboard in Resources */,
 			);
