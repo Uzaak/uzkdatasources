@@ -44,6 +44,14 @@
     return [[self dataSourceForSection:section] collectionView:collectionView numberOfItemsInSection:newSection];
 }
 
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
+    id dataSource = [self dataSourceForSection:indexPath.section];
+    NSIndexPath * newIndexPath = [self dataSourceIndexPathForIndexPath:indexPath];
+    
+    return [dataSource collectionView:collectionView viewForSupplementaryElementOfKind:kind atIndexPath:newIndexPath];
+}
+
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     id ds = [self dataSourceForSection:indexPath.section];
