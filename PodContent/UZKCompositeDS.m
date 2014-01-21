@@ -145,7 +145,7 @@
         i++;
     }
     
-    return nil;
+    return -1;
 }
 
 

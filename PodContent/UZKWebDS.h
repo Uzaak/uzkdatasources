@@ -10,9 +10,10 @@
 
 #import "UZKWebDSClient.h"
 
-@interface UZKWebDS : NSObject <UICollectionViewDataSource>
+@interface UZKWebDS : NSObject <UICollectionViewDataSource, UITableViewDataSource>
 
 @property (nonatomic, weak) IBOutlet UICollectionView * collectionView;
+@property (nonatomic, weak) IBOutlet UITableView * tableView;
 
 @property (nonatomic, strong) NSString * cellIdentifier;
 @property (nonatomic, strong) NSString * (^cellIdentifierBlock)(id);

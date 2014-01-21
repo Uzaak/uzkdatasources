@@ -8,14 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		9700000E18804EF700F9BC64 /* UZKCollectionTextReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9700000D18804EF700F9BC64 /* UZKCollectionTextReusableView.m */; };
-		970000121880528600F9BC64 /* UZKWebDSNoResultsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 970000111880528600F9BC64 /* UZKWebDSNoResultsCell.xib */; };
+		970000121880528600F9BC64 /* UZKWebDSNoResultsCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 970000111880528600F9BC64 /* UZKWebDSNoResultsCollectionCell.xib */; };
 		970000211880754700F9BC64 /* UICollectionViewCell+CustomObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 970000141880754700F9BC64 /* UICollectionViewCell+CustomObject.m */; };
 		970000221880754700F9BC64 /* UITableViewCell+CustomObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 970000161880754700F9BC64 /* UITableViewCell+CustomObject.m */; };
 		970000231880754700F9BC64 /* UZKCompositeDS.m in Sources */ = {isa = PBXBuildFile; fileRef = 970000181880754700F9BC64 /* UZKCompositeDS.m */; };
 		970000241880754700F9BC64 /* UZKContextManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9700001A1880754700F9BC64 /* UZKContextManager.m */; };
 		970000251880754700F9BC64 /* UZKCoreDataDS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9700001C1880754700F9BC64 /* UZKCoreDataDS.m */; };
 		970000261880754700F9BC64 /* UZKWebDS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9700001E1880754700F9BC64 /* UZKWebDS.m */; };
-		970000271880754700F9BC64 /* UZKWebDSLoadMoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 970000201880754700F9BC64 /* UZKWebDSLoadMoreCell.xib */; };
+		970000271880754700F9BC64 /* UZKWebDSLoadMoreCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 970000201880754700F9BC64 /* UZKWebDSLoadMoreCollectionCell.xib */; };
 		9700002918807A7400F9BC64 /* UZKDataSources.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 9700002818807A7400F9BC64 /* UZKDataSources.podspec */; };
 		9700FFC218804CA100F9BC64 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9700FFC118804CA100F9BC64 /* Foundation.framework */; };
 		9700FFC418804CA100F9BC64 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9700FFC318804CA100F9BC64 /* CoreGraphics.framework */; };
@@ -31,6 +31,8 @@
 		9700FFE318804CA100F9BC64 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9700FFC518804CA100F9BC64 /* UIKit.framework */; };
 		9700FFEB18804CA100F9BC64 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9700FFE918804CA100F9BC64 /* InfoPlist.strings */; };
 		9700FFED18804CA100F9BC64 /* UZKDataSourcesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9700FFEC18804CA100F9BC64 /* UZKDataSourcesTests.m */; };
+		97AAEF96188F0379005FC7D9 /* UZKWebDSLoadMoreTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97AAEF94188F0379005FC7D9 /* UZKWebDSLoadMoreTableCell.xib */; };
+		97AAEF99188F03F0005FC7D9 /* UZKWebDSNoResultsTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97AAEF98188F03F0005FC7D9 /* UZKWebDSNoResultsTableCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,7 +48,7 @@
 /* Begin PBXFileReference section */
 		9700000C18804EF700F9BC64 /* UZKCollectionTextReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UZKCollectionTextReusableView.h; path = PodContent/UZKCollectionTextReusableView.h; sourceTree = SOURCE_ROOT; };
 		9700000D18804EF700F9BC64 /* UZKCollectionTextReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UZKCollectionTextReusableView.m; path = PodContent/UZKCollectionTextReusableView.m; sourceTree = SOURCE_ROOT; };
-		970000111880528600F9BC64 /* UZKWebDSNoResultsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UZKWebDSNoResultsCell.xib; path = PodContent/UZKWebDSNoResultsCell.xib; sourceTree = SOURCE_ROOT; };
+		970000111880528600F9BC64 /* UZKWebDSNoResultsCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UZKWebDSNoResultsCollectionCell.xib; path = PodContent/UZKWebDSNoResultsCollectionCell.xib; sourceTree = SOURCE_ROOT; };
 		970000131880754700F9BC64 /* UICollectionViewCell+CustomObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UICollectionViewCell+CustomObject.h"; path = "PodContent/UICollectionViewCell+CustomObject.h"; sourceTree = SOURCE_ROOT; };
 		970000141880754700F9BC64 /* UICollectionViewCell+CustomObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UICollectionViewCell+CustomObject.m"; path = "PodContent/UICollectionViewCell+CustomObject.m"; sourceTree = SOURCE_ROOT; };
 		970000151880754700F9BC64 /* UITableViewCell+CustomObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UITableViewCell+CustomObject.h"; path = "PodContent/UITableViewCell+CustomObject.h"; sourceTree = SOURCE_ROOT; };
@@ -60,7 +62,7 @@
 		9700001D1880754700F9BC64 /* UZKWebDS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UZKWebDS.h; path = PodContent/UZKWebDS.h; sourceTree = SOURCE_ROOT; };
 		9700001E1880754700F9BC64 /* UZKWebDS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UZKWebDS.m; path = PodContent/UZKWebDS.m; sourceTree = SOURCE_ROOT; };
 		9700001F1880754700F9BC64 /* UZKWebDSClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UZKWebDSClient.h; path = PodContent/UZKWebDSClient.h; sourceTree = SOURCE_ROOT; };
-		970000201880754700F9BC64 /* UZKWebDSLoadMoreCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UZKWebDSLoadMoreCell.xib; path = PodContent/UZKWebDSLoadMoreCell.xib; sourceTree = SOURCE_ROOT; };
+		970000201880754700F9BC64 /* UZKWebDSLoadMoreCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UZKWebDSLoadMoreCollectionCell.xib; path = PodContent/UZKWebDSLoadMoreCollectionCell.xib; sourceTree = SOURCE_ROOT; };
 		9700002818807A7400F9BC64 /* UZKDataSources.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UZKDataSources.podspec; sourceTree = SOURCE_ROOT; };
 		9700FFBE18804CA100F9BC64 /* UZKDataSources.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UZKDataSources.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9700FFC118804CA100F9BC64 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -81,6 +83,8 @@
 		9700FFE818804CA100F9BC64 /* UZKDataSourcesTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UZKDataSourcesTests-Info.plist"; sourceTree = "<group>"; };
 		9700FFEA18804CA100F9BC64 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9700FFEC18804CA100F9BC64 /* UZKDataSourcesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UZKDataSourcesTests.m; sourceTree = "<group>"; };
+		97AAEF94188F0379005FC7D9 /* UZKWebDSLoadMoreTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UZKWebDSLoadMoreTableCell.xib; path = PodContent/UZKWebDSLoadMoreTableCell.xib; sourceTree = SOURCE_ROOT; };
+		97AAEF98188F03F0005FC7D9 /* UZKWebDSNoResultsTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UZKWebDSNoResultsTableCell.xib; path = PodContent/UZKWebDSNoResultsTableCell.xib; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,8 +127,10 @@
 				9700001D1880754700F9BC64 /* UZKWebDS.h */,
 				9700001E1880754700F9BC64 /* UZKWebDS.m */,
 				9700001F1880754700F9BC64 /* UZKWebDSClient.h */,
-				970000201880754700F9BC64 /* UZKWebDSLoadMoreCell.xib */,
-				970000111880528600F9BC64 /* UZKWebDSNoResultsCell.xib */,
+				970000201880754700F9BC64 /* UZKWebDSLoadMoreCollectionCell.xib */,
+				970000111880528600F9BC64 /* UZKWebDSNoResultsCollectionCell.xib */,
+				97AAEF94188F0379005FC7D9 /* UZKWebDSLoadMoreTableCell.xib */,
+				97AAEF98188F03F0005FC7D9 /* UZKWebDSNoResultsTableCell.xib */,
 				9700000C18804EF700F9BC64 /* UZKCollectionTextReusableView.h */,
 				9700000D18804EF700F9BC64 /* UZKCollectionTextReusableView.m */,
 			);
@@ -284,9 +290,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				9700002918807A7400F9BC64 /* UZKDataSources.podspec in Resources */,
-				970000121880528600F9BC64 /* UZKWebDSNoResultsCell.xib in Resources */,
-				970000271880754700F9BC64 /* UZKWebDSLoadMoreCell.xib in Resources */,
+				970000121880528600F9BC64 /* UZKWebDSNoResultsCollectionCell.xib in Resources */,
+				970000271880754700F9BC64 /* UZKWebDSLoadMoreCollectionCell.xib in Resources */,
 				9700FFDA18804CA100F9BC64 /* Images.xcassets in Resources */,
+				97AAEF96188F0379005FC7D9 /* UZKWebDSLoadMoreTableCell.xib in Resources */,
+				97AAEF99188F03F0005FC7D9 /* UZKWebDSNoResultsTableCell.xib in Resources */,
 				9700FFCC18804CA100F9BC64 /* InfoPlist.strings in Resources */,
 				9700FFD518804CA100F9BC64 /* Main.storyboard in Resources */,
 			);

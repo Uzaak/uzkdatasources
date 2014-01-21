@@ -9,6 +9,7 @@
 #import "UZKWebDS.h"
 
 #import "UICollectionViewCell+CustomObject.h"
+#import "UITableViewCell+CustomObject.h"
 
 @implementation UZKWebDS
 {
@@ -37,9 +38,18 @@
 {
     _collectionView = collectionView;
     
-    [_collectionView registerNib:[UINib nibWithNibName:@"UZKWebDSLoadMoreCell" bundle:nil] forCellWithReuseIdentifier:@"UZKWebDSLoadMoreCell"];
+    [_collectionView registerNib:[UINib nibWithNibName:@"UZKWebDSLoadMoreCollectionCell" bundle:nil] forCellWithReuseIdentifier:@"UZKWebDSLoadMoreCollectionCell"];
     
-    [_collectionView registerNib:[UINib nibWithNibName:@"UZKWebDSNoResultsCell" bundle:nil] forCellWithReuseIdentifier:@"UZKWebDSNoResultsCell"];
+    [_collectionView registerNib:[UINib nibWithNibName:@"UZKWebDSNoResultsCollectionCell" bundle:nil] forCellWithReuseIdentifier:@"UZKWebDSNoResultsCollectionCell"];
+}
+
+- (void)setTableView:(UITableView *)tableView
+{
+    _tableView = tableView;
+    
+    [_tableView registerNib:[UINib nibWithNibName:@"UZKWebDSLoadMoreTableCell" bundle:nil] forCellReuseIdentifier:@"UZKWebDSLoadMoreTableCell"];
+    
+    [_tableView registerNib:[UINib nibWithNibName:@"UZKWebDSNoResultsTableCell" bundle:nil] forCellReuseIdentifier:@"UZKWebDSNoResultsTableCell"];
 }
 
 
@@ -78,37 +88,91 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     if (![pages count] && finished) {
-        return [collectionView dequeueReusableCellWithReuseIdentifier:@"UZKWebDSNoResultsCell" forIndexPath:indexPath];
+        return [collectionView dequeueReusableCellWithReuseIdentifier:@"UZKWebDSNoResultsCollectionCell" forIndexPath:indexPath];
     }
     
     if (indexPath.section - self.sectionIndexOffset >= [pages count]) {
         // Posterga o "load", para evitar condições de corrida ao "fritar a tela" que travavam a carga da próxima página
         [self performSelectorOnMainThread:@selector(loadPage:) withObject:@([pages count]) waitUntilDone:NO];
-        return [collectionView dequeueReusableCellWithReuseIdentifier:@"UZKWebDSLoadMoreCell" forIndexPath:indexPath];
+        return [collectionView dequeueReusableCellWithReuseIdentifier:@"UZKWebDSLoadMoreCollectionCell" forIndexPath:indexPath];
     }
     
     id customObject = [self objectForIndexPath:indexPath];
     NSString * cellIdentifier;
-
+    
     if ( self.cellIdentifierBlock )
     {
         cellIdentifier = self.cellIdentifierBlock(customObject);
     }
-
+    
     if ( !cellIdentifier ) //previous block can return nil
     {
         cellIdentifier = self.cellIdentifier;
     }
     
     UICollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
-
+    
     cell.customObject = customObject;
     
     if ( self.cellDequeueBlock )
     {
         self.cellDequeueBlock(cell);
     }
+    
+    return cell;
+}
 
+
+#pragma mark TABLE
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return [pages count] + (([pages count] && finished) ? 0 : 1);
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if (section == [pages count]) {
+        return 1;
+    }
+    
+    return [[pages objectAtIndex:section] count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (![pages count] && finished) {
+        return [tableView dequeueReusableCellWithIdentifier:@"UZKWebDSNoResultsTableCell" forIndexPath:indexPath];
+    }
+    
+    if (indexPath.section - self.sectionIndexOffset >= [pages count]) {
+        // Posterga o "load", para evitar condições de corrida ao "fritar a tela" que travavam a carga da próxima página
+        [self performSelectorOnMainThread:@selector(loadPage:) withObject:@([pages count]) waitUntilDone:NO];
+        return [tableView dequeueReusableCellWithIdentifier:@"UZKWebDSLoadMoreTableCell" forIndexPath:indexPath];
+    }
+    
+    id customObject = [self objectForIndexPath:indexPath];
+    NSString * cellIdentifier;
+    
+    if ( self.cellIdentifierBlock )
+    {
+        cellIdentifier = self.cellIdentifierBlock(customObject);
+    }
+    
+    if ( !cellIdentifier ) //previous block can return nil
+    {
+        cellIdentifier = self.cellIdentifier;
+    }
+    
+    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+    
+    cell.customObject = customObject;
+    
+    if ( self.cellDequeueBlock )
+    {
+        self.cellDequeueBlock(cell);
+    }
+    
     return cell;
 }
 
