@@ -231,18 +231,21 @@
 {
     [self updateCollectionAnimator];
     [self.collectionView insertSections:[NSIndexSet indexSetWithIndex:[page integerValue] + self.sectionIndexOffset]];
+    [self.tableView insertSections:[NSIndexSet indexSetWithIndex:[page integerValue] + self.sectionIndexOffset] withRowAnimation:UITableViewRowAnimationNone];
 }
 
 - (void)animateLastPage
 {
     [self updateCollectionAnimator];
     [self.collectionView deleteSections:[NSIndexSet indexSetWithIndex:[pages count] + self.sectionIndexOffset]];
+    [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:[pages count] + self.sectionIndexOffset] withRowAnimation:UITableViewRowAnimationNone];
 }
 
 - (void)animateNothingReallyPage
 {
     [self updateCollectionAnimator];
     [self.collectionView reloadSections:[NSIndexSet indexSetWithIndex:0 + self.sectionIndexOffset]];
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0 + self.sectionIndexOffset] withRowAnimation:UITableViewRowAnimationNone];
 }
 
 - (void)updateCollectionAnimator
@@ -260,6 +263,7 @@
 {
     pages = [NSMutableArray new];
     finished = NO;
+    loading = NO;
 }
 
 @end
