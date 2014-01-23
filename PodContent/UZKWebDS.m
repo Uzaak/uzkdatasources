@@ -262,6 +262,14 @@
 }
 
 
+#pragma mark You can't change what isn't there
+
+- (BOOL)hasNoResults
+{
+    return ( [self.pages count] == 0 );
+}
+
+
 #pragma mark Start All Over
 
 - (void)resetData
