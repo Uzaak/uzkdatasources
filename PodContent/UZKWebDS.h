@@ -18,6 +18,10 @@
 @property (nonatomic, strong) NSString * cellIdentifier;
 @property (nonatomic, strong) NSString * (^cellIdentifierBlock)(id);
 @property (nonatomic, strong) void (^cellDequeueBlock)(id);
+
+@property (nonatomic, strong) void (^requestCallbackStartBlock)(NSArray * retrievedContent);
+@property (nonatomic, strong) void (^requestCallbackFinishBlock)(NSArray * retrievedContent);
+
 @property (nonatomic, strong) IBOutlet id<UZKWebDSClient> client;
 
 @property (nonatomic, strong) NSDictionary * parameters;

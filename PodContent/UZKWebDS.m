@@ -203,6 +203,8 @@
     {
         [refreshControl endRefreshing];
         
+        self.requestCallbackStartBlock(stuff);
+        
         if (![stuff count] && number == 0) {
             // Primeira página sem resultados
             finished = YES;
@@ -223,6 +225,8 @@
         }
         
         loading = NO;
+        
+        self.requestCallbackFinishBlock(stuff);
     };
 
     [self.client requestPage:number + 1
