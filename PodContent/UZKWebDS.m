@@ -11,9 +11,14 @@
 #import "UICollectionViewCell+CustomObject.h"
 #import "UITableViewCell+CustomObject.h"
 
+@interface UZKWebDS ()
+
+@property (nonatomic, strong) NSMutableArray * pages;
+
+@end
+
 @implementation UZKWebDS
 {
-    NSMutableArray * pages;
     BOOL finished;
     BOOL loading;
     UIRefreshControl * refreshControl;
@@ -26,7 +31,7 @@
     if ( self )
     {
         self.cellIdentifier = @"Cell";
-        pages = [NSMutableArray new];
+        self.pages = [NSMutableArray new];
     }
     
     return self;
@@ -63,7 +68,7 @@
     va_start(args, dataForSection0);
     for (NSArray * dataForSection = dataForSection0; dataForSection != nil; dataForSection = va_arg(args, NSArray *))
     {
-        [pages addObject:dataForSection];
+        [self.pages addObject:dataForSection];
     }
     va_end(args);
 }
@@ -73,27 +78,27 @@
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    return [pages count] + (([pages count] && finished) ? 0 : 1);
+    return [self.pages count] + (([self.pages count] && finished) ? 0 : 1);
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    if (section == [pages count]) {
+    if (section == [self.pages count]) {
         return 1;
     }
     
-    return [[pages objectAtIndex:section] count];
+    return [[self.pages objectAtIndex:section] count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (![pages count] && finished) {
+    if (![self.pages count] && finished) {
         return [collectionView dequeueReusableCellWithReuseIdentifier:@"UZKWebDSNoResultsCollectionCell" forIndexPath:indexPath];
     }
     
-    if (indexPath.section - self.sectionIndexOffset >= [pages count]) {
+    if (indexPath.section - self.sectionIndexOffset >= [self.pages count]) {
         // Posterga o "load", para evitar condições de corrida ao "fritar a tela" que travavam a carga da próxima página
-        [self performSelectorOnMainThread:@selector(loadPage:) withObject:@([pages count]) waitUntilDone:NO];
+        [self performSelectorOnMainThread:@selector(loadPage:) withObject:@([self.pages count]) waitUntilDone:NO];
         return [collectionView dequeueReusableCellWithReuseIdentifier:@"UZKWebDSLoadMoreCollectionCell" forIndexPath:indexPath];
     }
     
@@ -127,27 +132,27 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return [pages count] + (([pages count] && finished) ? 0 : 1);
+    return [self.pages count] + (([self.pages count] && finished) ? 0 : 1);
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section == [pages count]) {
+    if (section == [self.pages count]) {
         return 1;
     }
     
-    return [[pages objectAtIndex:section] count];
+    return [[self.pages objectAtIndex:section] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (![pages count] && finished) {
+    if (![self.pages count] && finished) {
         return [tableView dequeueReusableCellWithIdentifier:@"UZKWebDSNoResultsTableCell" forIndexPath:indexPath];
     }
     
-    if (indexPath.section - self.sectionIndexOffset >= [pages count]) {
+    if (indexPath.section - self.sectionIndexOffset >= [self.pages count]) {
         // Posterga o "load", para evitar condições de corrida ao "fritar a tela" que travavam a carga da próxima página
-        [self performSelectorOnMainThread:@selector(loadPage:) withObject:@([pages count]) waitUntilDone:NO];
+        [self performSelectorOnMainThread:@selector(loadPage:) withObject:@([self.pages count]) waitUntilDone:NO];
         return [tableView dequeueReusableCellWithIdentifier:@"UZKWebDSLoadMoreTableCell" forIndexPath:indexPath];
     }
     
@@ -181,7 +186,7 @@
 
 - (id)objectForIndexPath:(NSIndexPath *)indexPath
 {
-    return [[pages objectAtIndex:indexPath.section - self.sectionIndexOffset] objectAtIndex:indexPath.row];
+    return [[self.pages objectAtIndex:indexPath.section - self.sectionIndexOffset] objectAtIndex:indexPath.row];
 }
 
 
@@ -211,7 +216,7 @@
                                    withObject:nil
                                 waitUntilDone:NO];
         } else {
-            [pages addObject:stuff];
+            [self.pages addObject:stuff];
             [self performSelectorOnMainThread:@selector(animatePageInsertion:)
                                    withObject:n
                                 waitUntilDone:NO];
@@ -261,7 +266,7 @@
 
 - (void)resetData
 {
-    pages = [NSMutableArray new];
+    self.pages = [NSMutableArray new];
     finished = NO;
     loading = NO;
 }

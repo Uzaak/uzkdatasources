@@ -20,6 +20,8 @@
 @property (nonatomic, strong) void (^cellDequeueBlock)(id);
 @property (nonatomic, strong) IBOutlet id<UZKWebDSClient> client;
 
+@property (nonatomic, readonly) NSArray * pages;
+
 @property (nonatomic, strong) NSDictionary * parameters;
 
 @property (nonatomic) NSInteger sectionIndexOffset;
