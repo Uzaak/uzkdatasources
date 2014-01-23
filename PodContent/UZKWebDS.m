@@ -203,7 +203,10 @@
     {
         [refreshControl endRefreshing];
         
-        self.requestCallbackStartBlock(stuff);
+        if ( self.requestCallbackStartBlock )
+        {
+            self.requestCallbackStartBlock(stuff);
+        }
         
         if (![stuff count] && number == 0) {
             // Primeira página sem resultados
@@ -226,7 +229,10 @@
         
         loading = NO;
         
-        self.requestCallbackFinishBlock(stuff);
+        if ( self.requestCallbackFinishBlock )
+        {
+            self.requestCallbackFinishBlock(stuff);
+        }
     };
 
     [self.client requestPage:number + 1
