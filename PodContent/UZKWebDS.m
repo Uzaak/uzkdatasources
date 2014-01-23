@@ -283,4 +283,11 @@
     loading = NO;
 }
 
+
+- (void)forceLoadNextPage
+{
+    [self performSelectorOnMainThread:@selector(loadPage:) withObject:@([self.pages count]) waitUntilDone:NO];
+}
+
+
 @end
