@@ -186,7 +186,12 @@
 
 - (id)objectForIndexPath:(NSIndexPath *)indexPath
 {
-    return [[self.pages objectAtIndex:indexPath.section - self.sectionIndexOffset] objectAtIndex:indexPath.row];
+    NSInteger section = indexPath.section - self.sectionIndexOffset;
+    if ( section == [self.pages count] )
+    {
+        return nil;
+    }
+    return [[self.pages objectAtIndex:section] objectAtIndex:indexPath.row];
 }
 
 
