@@ -156,12 +156,12 @@
 
 - (id)objectForIndexPath:(NSIndexPath *)indexPath
 {
-    NSInteger objectCount = indexPath.row;
+    long objectCount = indexPath.row;
     for ( int x = 0 ; x < [self.pages count] ; x++ )
     {
-        if ( objectCount - [[[self pages] objectAtIndex:x] count] > 0 )
+        if ( objectCount - (long)[[[self pages] objectAtIndex:x] count] >= 0 )
         {
-            objectCount -= [[[self pages] objectAtIndex:x] count];
+            objectCount -= (long)[[[self pages] objectAtIndex:x] count];
         }
         else
         {
