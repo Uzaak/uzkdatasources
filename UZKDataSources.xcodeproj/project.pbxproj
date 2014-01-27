@@ -33,6 +33,7 @@
 		9700FFED18804CA100F9BC64 /* UZKDataSourcesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9700FFEC18804CA100F9BC64 /* UZKDataSourcesTests.m */; };
 		97AAEF96188F0379005FC7D9 /* UZKWebDSLoadMoreTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97AAEF94188F0379005FC7D9 /* UZKWebDSLoadMoreTableCell.xib */; };
 		97AAEF99188F03F0005FC7D9 /* UZKWebDSNoResultsTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97AAEF98188F03F0005FC7D9 /* UZKWebDSNoResultsTableCell.xib */; };
+		97AAEFA31896D556005FC7D9 /* UZKSingleSectionedWebDS.m in Sources */ = {isa = PBXBuildFile; fileRef = 97AAEFA21896D556005FC7D9 /* UZKSingleSectionedWebDS.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,8 @@
 		9700FFEC18804CA100F9BC64 /* UZKDataSourcesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UZKDataSourcesTests.m; sourceTree = "<group>"; };
 		97AAEF94188F0379005FC7D9 /* UZKWebDSLoadMoreTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UZKWebDSLoadMoreTableCell.xib; path = PodContent/UZKWebDSLoadMoreTableCell.xib; sourceTree = SOURCE_ROOT; };
 		97AAEF98188F03F0005FC7D9 /* UZKWebDSNoResultsTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UZKWebDSNoResultsTableCell.xib; path = PodContent/UZKWebDSNoResultsTableCell.xib; sourceTree = SOURCE_ROOT; };
+		97AAEFA11896D556005FC7D9 /* UZKSingleSectionedWebDS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UZKSingleSectionedWebDS.h; path = PodContent/UZKSingleSectionedWebDS.h; sourceTree = SOURCE_ROOT; };
+		97AAEFA21896D556005FC7D9 /* UZKSingleSectionedWebDS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UZKSingleSectionedWebDS.m; path = PodContent/UZKSingleSectionedWebDS.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +129,8 @@
 				9700001C1880754700F9BC64 /* UZKCoreDataDS.m */,
 				9700001D1880754700F9BC64 /* UZKWebDS.h */,
 				9700001E1880754700F9BC64 /* UZKWebDS.m */,
+				97AAEFA11896D556005FC7D9 /* UZKSingleSectionedWebDS.h */,
+				97AAEFA21896D556005FC7D9 /* UZKSingleSectionedWebDS.m */,
 				9700001F1880754700F9BC64 /* UZKWebDSClient.h */,
 				970000201880754700F9BC64 /* UZKWebDSLoadMoreCollectionCell.xib */,
 				970000111880528600F9BC64 /* UZKWebDSNoResultsCollectionCell.xib */,
@@ -322,6 +327,7 @@
 				970000261880754700F9BC64 /* UZKWebDS.m in Sources */,
 				9700FFCE18804CA100F9BC64 /* main.m in Sources */,
 				970000211880754700F9BC64 /* UICollectionViewCell+CustomObject.m in Sources */,
+				97AAEFA31896D556005FC7D9 /* UZKSingleSectionedWebDS.m in Sources */,
 				9700FFD218804CA100F9BC64 /* UZKAppDelegate.m in Sources */,
 				970000251880754700F9BC64 /* UZKCoreDataDS.m in Sources */,
 				970000221880754700F9BC64 /* UITableViewCell+CustomObject.m in Sources */,
