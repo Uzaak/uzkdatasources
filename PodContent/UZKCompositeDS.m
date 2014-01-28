@@ -47,9 +47,8 @@
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
     id dataSource = [self dataSourceForSection:indexPath.section];
-    NSIndexPath * newIndexPath = [self dataSourceIndexPathForIndexPath:indexPath];
     
-    return [dataSource collectionView:collectionView viewForSupplementaryElementOfKind:kind atIndexPath:newIndexPath];
+    return [dataSource collectionView:collectionView viewForSupplementaryElementOfKind:kind atIndexPath:indexPath];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
