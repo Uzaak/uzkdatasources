@@ -84,12 +84,7 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    NSInteger numberOfItemsInSection = 0;
-    
-    for (NSArray * page in self.pages)
-    {
-        numberOfItemsInSection += [page count];
-    }
+    NSInteger numberOfItemsInSection = [self sumOfAllPages];
     
     if ( !finished )
     {
@@ -106,7 +101,7 @@
         return [collectionView dequeueReusableCellWithReuseIdentifier:@"UZKWebDSNoResultsCollectionCell" forIndexPath:indexPath];
     }
     
-    if (indexPath.item == [self collectionView:collectionView numberOfItemsInSection:0] - 1)
+    if ( indexPath.item == [self sumOfAllPages] )
     {
         // Posterga o "load", para evitar condições de corrida ao "fritar a tela" que travavam a carga da próxima página
         [self performSelectorOnMainThread:@selector(loadPage:) withObject:@([self.pages count]) waitUntilDone:NO];
@@ -168,12 +163,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSInteger numberOfRowsInSection = 0;
-    
-    for (NSArray * page in self.pages)
-    {
-        numberOfRowsInSection += [page count];
-    }
+    NSInteger numberOfRowsInSection = [self sumOfAllPages];
     
     if ( !finished )
     {
@@ -189,7 +179,7 @@
         return [tableView dequeueReusableCellWithIdentifier:@"UZKWebDSNoResultsTableCell" forIndexPath:indexPath];
     }
     
-    if (indexPath.row == [self tableView:tableView numberOfRowsInSection:0] - 1)
+    if (indexPath.row == [self sumOfAllPages])
     {
         // Posterga o "load", para evitar condições de corrida ao "fritar a tela" que travavam a carga da próxima página
         [self performSelectorOnMainThread:@selector(loadPage:) withObject:@([self.pages count]) waitUntilDone:NO];
@@ -330,6 +320,21 @@
 - (BOOL)hasNoResults
 {
     return ( [self.pages count] == 0 );
+}
+
+
+#pragma mark Helpers are helpful
+
+- (NSInteger)sumOfAllPages
+{
+    NSInteger sumOfAllPages = 0;
+    
+    for (NSArray * page in self.pages)
+    {
+        sumOfAllPages += [page count];
+    }
+    
+    return sumOfAllPages;
 }
 
 
