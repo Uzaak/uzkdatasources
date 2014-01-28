@@ -19,6 +19,9 @@
 @property (nonatomic, strong) NSString * (^cellIdentifierBlock)(id);
 @property (nonatomic, strong) void (^cellDequeueBlock)(id);
 
+@property (nonatomic, strong) NSString * (^reusableViewIdentifierBlock)(NSString * kind, NSIndexPath * indexPath);
+@property (nonatomic, strong) void (^reusableViewDequeueBlock)(UICollectionReusableView * reusableView);
+
 @property (nonatomic, strong) void (^requestCallbackStartBlock)(NSArray * retrievedContent);
 @property (nonatomic, strong) void (^requestCallbackFinishBlock)(NSArray * retrievedContent);
 

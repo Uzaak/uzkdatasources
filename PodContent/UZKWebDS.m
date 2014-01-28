@@ -128,6 +128,26 @@
 }
 
 
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
+    if ( !self.reusableViewIdentifierBlock )
+    {
+        return nil;
+    }
+    
+    NSString * reusableViewIdentifier = self.reusableViewIdentifierBlock(kind, indexPath);
+    
+    UICollectionReusableView * reusableView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:reusableViewIdentifier forIndexPath:indexPath];
+    
+    if ( self.reusableViewDequeueBlock )
+    {
+        self.reusableViewDequeueBlock(reusableView);
+    }
+    
+    return reusableView;
+}
+
+
 #pragma mark TABLE
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
