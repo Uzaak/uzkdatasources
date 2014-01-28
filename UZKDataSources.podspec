@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'UZKDataSources'
-  s.version  = '1.2.18'
+  s.version  = '1.2.19'
   s.license  = 'MIT'
   s.summary  = 'Foobar'
   s.authors  = { 'Tiago Furlanetto' => 'tiago.f.furlanetto@gmail.com' }
