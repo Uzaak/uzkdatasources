@@ -43,6 +43,8 @@
 {
     _collectionView = collectionView;
     
+    self.noResultsCellIdentifier = @"UZKWebDSNoResultsCollectionCell";
+    
     [_collectionView registerNib:[UINib nibWithNibName:@"UZKWebDSLoadMoreCollectionCell" bundle:nil] forCellWithReuseIdentifier:@"UZKWebDSLoadMoreCollectionCell"];
     
     [_collectionView registerNib:[UINib nibWithNibName:@"UZKWebDSNoResultsCollectionCell" bundle:nil] forCellWithReuseIdentifier:@"UZKWebDSNoResultsCollectionCell"];
@@ -51,6 +53,8 @@
 - (void)setTableView:(UITableView *)tableView
 {
     _tableView = tableView;
+    
+    self.noResultsCellIdentifier = @"UZKWebDSNoResultsTableCell";
     
     [_tableView registerNib:[UINib nibWithNibName:@"UZKWebDSLoadMoreTableCell" bundle:nil] forCellReuseIdentifier:@"UZKWebDSLoadMoreTableCell"];
     
@@ -93,7 +97,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     if (![self.pages count] && finished) {
-        return [collectionView dequeueReusableCellWithReuseIdentifier:@"UZKWebDSNoResultsCollectionCell" forIndexPath:indexPath];
+        return [collectionView dequeueReusableCellWithReuseIdentifier:self.noResultsCellIdentifier forIndexPath:indexPath];
     }
     
     if (indexPath.section - self.sectionIndexOffset >= [self.pages count]) {
@@ -167,7 +171,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (![self.pages count] && finished) {
-        return [tableView dequeueReusableCellWithIdentifier:@"UZKWebDSNoResultsTableCell" forIndexPath:indexPath];
+        return [tableView dequeueReusableCellWithIdentifier:self.noResultsCellIdentifier forIndexPath:indexPath];
     }
     
     if (indexPath.section - self.sectionIndexOffset >= [self.pages count]) {

@@ -44,6 +44,8 @@
 {
     _collectionView = collectionView;
     
+    self.noResultsCellIdentifier = @"UZKWebDSNoResultsCollectionCell";
+    
     [_collectionView registerNib:[UINib nibWithNibName:@"UZKWebDSLoadMoreCollectionCell" bundle:nil] forCellWithReuseIdentifier:@"UZKWebDSLoadMoreCollectionCell"];
     
     [_collectionView registerNib:[UINib nibWithNibName:@"UZKWebDSNoResultsCollectionCell" bundle:nil] forCellWithReuseIdentifier:@"UZKWebDSNoResultsCollectionCell"];
@@ -52,6 +54,8 @@
 - (void)setTableView:(UITableView *)tableView
 {
     _tableView = tableView;
+    
+    self.noResultsCellIdentifier = @"UZKWebDSNoResultsTableCell";
     
     [_tableView registerNib:[UINib nibWithNibName:@"UZKWebDSLoadMoreTableCell" bundle:nil] forCellReuseIdentifier:@"UZKWebDSLoadMoreTableCell"];
     
@@ -86,9 +90,13 @@
 {
     NSInteger numberOfItemsInSection = [self sumOfAllPages];
     
-    if ( !finished )
+    if ( !finished ) //not yet finished
     {
         numberOfItemsInSection++; //loadMore
+    }
+    else if ( numberOfItemsInSection == 0 ) //finished and has no results
+    {
+        numberOfItemsInSection++; //noResults
     }
     
     return numberOfItemsInSection;
@@ -98,7 +106,7 @@
 {
     if (![self.pages count] && finished)
     {
-        return [collectionView dequeueReusableCellWithReuseIdentifier:@"UZKWebDSNoResultsCollectionCell" forIndexPath:indexPath];
+        return [collectionView dequeueReusableCellWithReuseIdentifier:self.noResultsCellIdentifier forIndexPath:indexPath];
     }
     
     if ( indexPath.item == [self sumOfAllPages] )
@@ -176,7 +184,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (![self.pages count] && finished) {
-        return [tableView dequeueReusableCellWithIdentifier:@"UZKWebDSNoResultsTableCell" forIndexPath:indexPath];
+        return [tableView dequeueReusableCellWithIdentifier:self.noResultsCellIdentifier forIndexPath:indexPath];
     }
     
     if (indexPath.row == [self sumOfAllPages])
