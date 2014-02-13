@@ -13,11 +13,16 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="l2Z-4L-Ax1">
+                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="l2Z-4L-Ax1">
                         <rect key="frame" x="141" y="3" width="37" height="37"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="color" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </activityIndicatorView>
                 </subviews>
+                <constraints>
+                    <constraint firstAttribute="centerX" secondItem="l2Z-4L-Ax1" secondAttribute="centerX" constant="0.5" id="sbt-Ac-Br0"/>
+                    <constraint firstAttribute="centerY" secondItem="l2Z-4L-Ax1" secondAttribute="centerY" id="w8I-rO-qcj"/>
+                </constraints>
             </tableViewCellContentView>
         </tableViewCell>
     </objects>
