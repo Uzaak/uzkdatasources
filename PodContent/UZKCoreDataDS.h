@@ -21,6 +21,8 @@
 @property (nonatomic, strong) NSArray * sortDescriptors;
 @property (nonatomic, strong) NSString * sectionNameKeyPath;
 
+@property (nonatomic) NSInteger sectionIndexOffset;
+
 @property (nonatomic, readonly) NSFetchedResultsController * fetchedResultsController;
 
 - (NSIndexPath *)indexPathForObject:(id)object;

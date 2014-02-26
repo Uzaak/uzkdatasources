@@ -28,6 +28,10 @@
     NSMutableArray * innerSectionCount = [@[] mutableCopy];
     
     for (id source in self.innerDataSources) {
+        if ( [source respondsToSelector:@selector(setSectionIndexOffset:)] )
+        {
+            [source setSectionIndexOffset:number];
+        }
         NSInteger numberForSection = [source numberOfSectionsInCollectionView:collectionView];
         number += numberForSection;
         [innerSectionCount addObject:[NSNumber numberWithInteger:numberForSection]];
@@ -47,6 +51,7 @@
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
     id dataSource = [self dataSourceForSection:indexPath.section];
+    NSIndexPath * newIndexPath = [self dataSourceIndexPathForIndexPath:indexPath];
     
     return [dataSource collectionView:collectionView viewForSupplementaryElementOfKind:kind atIndexPath:indexPath];
 }
@@ -74,7 +79,6 @@
     
     return cell;
 }
-
 
 #pragma mark TABLE
 
@@ -145,7 +149,7 @@
         i++;
     }
     
-    return -1;
+    return nil;
 }
 
 
