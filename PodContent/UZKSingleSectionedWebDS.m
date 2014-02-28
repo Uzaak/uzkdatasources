@@ -43,7 +43,8 @@
 - (void)setCollectionView:(UICollectionView *)collectionView
 {
     _collectionView = collectionView;
-    
+
+    self.loadMoreCellIdentifier = @"UZKWebDSLoadMoreCollectionCell";
     self.noResultsCellIdentifier = @"UZKWebDSNoResultsCollectionCell";
     
     [_collectionView registerNib:[UINib nibWithNibName:@"UZKWebDSLoadMoreCollectionCell" bundle:nil] forCellWithReuseIdentifier:@"UZKWebDSLoadMoreCollectionCell"];
@@ -55,6 +56,7 @@
 {
     _tableView = tableView;
     
+    self.loadMoreCellIdentifier = @"UZKWebDSLoadMoreTableCell";
     self.noResultsCellIdentifier = @"UZKWebDSNoResultsTableCell";
     
     [_tableView registerNib:[UINib nibWithNibName:@"UZKWebDSLoadMoreTableCell" bundle:nil] forCellReuseIdentifier:@"UZKWebDSLoadMoreTableCell"];
@@ -113,7 +115,7 @@
     {
         // Posterga o "load", para evitar condições de corrida ao "fritar a tela" que travavam a carga da próxima página
         [self performSelectorOnMainThread:@selector(loadPage:) withObject:@([self.pages count]) waitUntilDone:NO];
-        return [collectionView dequeueReusableCellWithReuseIdentifier:@"UZKWebDSLoadMoreCollectionCell" forIndexPath:indexPath];
+        return [collectionView dequeueReusableCellWithReuseIdentifier:self.loadMoreCellIdentifier forIndexPath:indexPath];
     }
     
     id customObject = [self objectForIndexPath:indexPath];

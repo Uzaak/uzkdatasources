@@ -20,6 +20,7 @@
 @property (nonatomic, strong) NSString * (^cellIdentifierBlock)(id);
 @property (nonatomic, strong) void (^cellDequeueBlock)(id);
 
+@property (nonatomic, strong) NSString * loadMoreCellIdentifier;
 @property (nonatomic, strong) NSString * noResultsCellIdentifier;
 
 @property (nonatomic, strong) NSString * (^reusableViewIdentifierBlock)(NSString * kind, NSIndexPath * indexPath);
