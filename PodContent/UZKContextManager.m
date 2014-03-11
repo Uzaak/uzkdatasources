@@ -46,7 +46,8 @@
 {
     NSPersistentStoreCoordinator * coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
 
-    NSURL * sqliteURL = [[NSBundle mainBundle] URLForResource:@"Pokedex" withExtension:@"sqlite"];
+    //NSURL * sqliteURL = [[NSBundle mainBundle] URLForResource:@"Pokedex" withExtension:@"sqlite"];
+    NSURL * sqliteURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"Pokedex.sqlite"];
     
     [coordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:sqliteURL options:nil error:nil];
     
