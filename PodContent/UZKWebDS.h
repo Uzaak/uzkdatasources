@@ -40,6 +40,7 @@
 - (id)objectForIndexPath:(NSIndexPath *)indexPath;
 
 - (BOOL)hasNoResults;
+- (BOOL)isDoneRequestingPages;
 
 - (void)resetData;
 

@@ -332,6 +332,11 @@
     return ( [self.pages count] == 0 );
 }
 
+- (BOOL)isDoneRequestingPages
+{
+    return finished;
+}
+
 
 #pragma mark Helpers are helpful
 
