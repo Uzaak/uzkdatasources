@@ -18,6 +18,7 @@
 
 @property (nonatomic, strong) NSString * cellIdentifier;
 @property (nonatomic, strong) NSString * (^cellIdentifierBlock)(id);
+@property (nonatomic, strong) id (^customObjectBlock)(id);
 @property (nonatomic, strong) void (^cellDequeueBlock)(id);
 
 @property (nonatomic, strong) NSString * loadMoreCellIdentifier;
