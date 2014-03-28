@@ -109,6 +109,12 @@
     }
     
     id customObject = [self objectForIndexPath:indexPath];
+    
+    if ( self.customObjectBlock )
+    {
+        customObject = self.customObjectBlock(customObject);
+    }
+    
     NSString * cellIdentifier;
     
     if ( self.cellIdentifierBlock )
