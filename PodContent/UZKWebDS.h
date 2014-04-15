@@ -30,6 +30,9 @@
 @property (nonatomic, strong) void (^requestCallbackStartBlock)(NSArray * retrievedContent);
 @property (nonatomic, strong) void (^requestCallbackFinishBlock)(NSArray * retrievedContent);
 
+@property (nonatomic, strong) NSArray * (^splitDataIntoSectionsBlock)(NSArray * currentSectionedData);
+@property (nonatomic, strong) NSArray * (^sectionTitlesForSectionsBlock)(NSArray * currentSectionedData);
+
 @property (nonatomic, strong) IBOutlet id<UZKWebDSClient> client;
 
 @property (nonatomic, strong) NSDictionary * parameters;
