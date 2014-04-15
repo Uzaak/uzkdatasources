@@ -14,6 +14,7 @@
 @interface UZKWebDS ()
 
 @property (nonatomic, strong) NSMutableArray * pages;
+@property (nonatomic, strong) NSArray * sectionTitles;
 
 @end
 
@@ -77,6 +78,8 @@
         [self.pages addObject:dataForSection];
     }
     va_end(args);
+    
+    [self reloadData];
 }
 
 
@@ -219,6 +222,13 @@
     return cell;
 }
 
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
+    return self.sectionTitles;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return section >= [self.sectionTitles count] ? nil : self.sectionTitles[section];
+}
 
 #pragma mark Custom Object Management
 
@@ -254,19 +264,19 @@
         if (![stuff count] && number == 0) {
             // Primeira página sem resultados
             finished = YES;
-            [self performSelectorOnMainThread:@selector(animateNothingReallyPage)
+            [self performSelectorOnMainThread:@selector(reloadData)
                                    withObject:nil
                                 waitUntilDone:NO];
         } else if (![stuff count]) {
             // Última página
             finished = YES;
-            [self performSelectorOnMainThread:@selector(animateLastPage)
+            [self performSelectorOnMainThread:@selector(reloadData)
                                    withObject:nil
                                 waitUntilDone:NO];
         } else {
             [self.pages addObject:stuff];
-            [self performSelectorOnMainThread:@selector(animatePageInsertion:)
-                                   withObject:n
+            [self performSelectorOnMainThread:@selector(reloadData)
+                                   withObject:nil
                                 waitUntilDone:NO];
         }
         
@@ -285,22 +295,15 @@
 
 #pragma mark Animating Insertions
 
-- (void)animatePageInsertion:(NSNumber *)page
+- (void)reloadData
 {
-    [self updateCollectionAnimator];
-    [self.collectionView reloadData];
-    [self.tableView reloadData];
-}
-
-- (void)animateLastPage
-{
-    [self updateCollectionAnimator];
-    [self.collectionView reloadData];
-    [self.tableView reloadData];
-}
-
-- (void)animateNothingReallyPage
-{
+    if (self.splitDataIntoSectionsBlock) {
+        self.pages = [self.splitDataIntoSectionsBlock(self.pages) mutableCopy];
+    }
+    if (self.sectionTitlesForSectionsBlock) {
+        self.sectionTitles = self.sectionTitlesForSectionsBlock(self.pages);
+    }
+    
     [self updateCollectionAnimator];
     [self.collectionView reloadData];
     [self.tableView reloadData];
