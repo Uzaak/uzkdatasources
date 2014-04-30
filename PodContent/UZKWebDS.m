@@ -219,6 +219,39 @@
     return cell;
 }
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ( self.canEditRowBlock )
+    {
+        return self.canEditRowBlock(indexPath);
+    }
+
+    return NO;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        if ( self.itemDeletionBlock )
+        {
+            self.itemDeletionBlock(indexPath);
+        }
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        
+        for ( NSArray * page in self.pages )
+        {
+            if ( [page count] > 0 )
+            {
+                return;
+            }
+        }
+        
+        self.pages = [NSMutableArray new];
+        [self.tableView reloadData];
+    }
+}
+
 
 #pragma mark Custom Object Management
 
@@ -230,6 +263,22 @@
         return nil;
     }
     return [[self.pages objectAtIndex:section] objectAtIndex:indexPath.row];
+}
+
+- (id)removeObjectAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSInteger section = indexPath.section - self.sectionIndexOffset;
+    if ( section == [self.pages count] )
+    {
+        return nil;
+    }
+    NSMutableArray * page = [[self.pages objectAtIndex:section] mutableCopy];
+    id object = [page objectAtIndex:indexPath.item];
+    [page removeObjectAtIndex:indexPath.item];
+    
+    [self.pages setObject:page atIndexedSubscript:section];
+    
+    return object;
 }
 
 
