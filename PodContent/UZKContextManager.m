@@ -8,6 +8,12 @@
 
 #import "UZKContextManager.h"
 
+@interface UZKContextManager()
+
+@property (nonatomic, strong) NSManagedObjectContext * context;
+
+@end
+
 @implementation UZKContextManager
 
 + (UZKContextManager *)instance
@@ -28,6 +34,12 @@
     return [self instance];
 }
 
+- (NSString *)applicationName
+{
+    NSDictionary * applicationInfo = [NSBundle mainBundle].infoDictionary;
+    return applicationInfo[@"CFBundleExecutable"];
+}
+
 - (NSURL *)applicationDocumentsDirectory
 {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
@@ -35,7 +47,7 @@
 
 - (NSManagedObjectModel *)managedObjectModel
 {
-    NSURL * modelURL = [[NSBundle mainBundle] URLForResource:@"Pokedex" withExtension:@"mom"];
+    NSURL * modelURL = [[NSBundle mainBundle] URLForResource:[self applicationName] withExtension:@"momd"];
     
     NSManagedObjectModel * managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
     
@@ -44,28 +56,40 @@
 
 - (NSPersistentStoreCoordinator *)coordinator
 {
+    NSError * error;
     NSPersistentStoreCoordinator * coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
 
-    //NSURL * sqliteURL = [[NSBundle mainBundle] URLForResource:@"Pokedex" withExtension:@"sqlite"];
-    NSURL * sqliteURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"Pokedex.sqlite"];
+    NSString * readonlySQLite = [NSString stringWithFormat:@"%@Readonly", [self applicationName]];
+    NSURL * sqliteURL;
     
-    [coordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:sqliteURL options:nil error:nil];
+    sqliteURL = [[NSBundle mainBundle] URLForResource:readonlySQLite withExtension:@"sqlite"];
+    if ( sqliteURL )
+    {
+        [coordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:sqliteURL options:@{NSReadOnlyPersistentStoreOption: @YES, NSSQLitePragmasOption : @{ @"journal_mode" : @"DELETE" }} error:&error];
+    }
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *sqlitePath = [[documentsDirectory stringByAppendingPathComponent:[self applicationName]] stringByAppendingPathExtension:@"sqlite"];
+    
+    sqliteURL = [NSURL fileURLWithPath:sqlitePath];
+    [coordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:sqliteURL options:@{NSMigratePersistentStoresAutomaticallyOption : @YES, NSInferMappingModelAutomaticallyOption : @YES} error:&error];
     
     return coordinator;
 }
 
 - (NSManagedObjectContext *)context
 {
-    if ( context )
+    if ( _context )
     {
-        return context;
+        return _context;
     }
     
     NSPersistentStoreCoordinator * coordinator = [self coordinator];
-    context = [[NSManagedObjectContext alloc] init];
-    context.persistentStoreCoordinator = coordinator;
+    _context = [[NSManagedObjectContext alloc] init];
+    _context.persistentStoreCoordinator = coordinator;
     
-    return context;
+    return _context;
 }
 
 - (void)persist

@@ -10,9 +10,8 @@
 #import <Foundation/Foundation.h>
 
 @interface UZKContextManager : NSObject
-{
-    NSManagedObjectContext * context;
-}
+
+@property (nonatomic, readonly) NSManagedObjectContext * context;
 
 - (void)persist;
 
