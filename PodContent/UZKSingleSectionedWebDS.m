@@ -233,6 +233,39 @@
     return cell;
 }
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ( self.canEditRowBlock )
+    {
+        return self.canEditRowBlock(indexPath);
+    }
+    
+    return NO;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        if ( self.itemDeletionBlock )
+        {
+            self.itemDeletionBlock(indexPath);
+        }
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        
+        for ( NSArray * page in self.pages )
+        {
+            if ( [page count] > 0 )
+            {
+                return;
+            }
+        }
+        
+        self.pages = [NSMutableArray new];
+        [self.tableView reloadData];
+    }
+}
+
 
 #pragma mark Custom Object Management
 
@@ -252,6 +285,37 @@
     }
     
     return nil;
+}
+
+- (id)removeObjectAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSInteger section = 0;
+    long objectCount = indexPath.row;
+    for ( int x = 0 ; x < [self.pages count] ; x++ )
+    {
+        if ( objectCount - (long)[[[self pages] objectAtIndex:x] count] >= 0 )
+        {
+            objectCount -= (long)[[[self pages] objectAtIndex:x] count];
+        }
+        else
+        {
+            section = x;
+            break;
+        }
+    }
+    
+    if ( ! section )
+    {
+        return nil;
+    }
+    
+    NSMutableArray * page = [[self.pages objectAtIndex:section] mutableCopy];
+    id object = [page objectAtIndex:indexPath.item];
+    [page removeObjectAtIndex:indexPath.item];
+    
+    [self.pages setObject:page atIndexedSubscript:section];
+    
+    return object;
 }
 
 

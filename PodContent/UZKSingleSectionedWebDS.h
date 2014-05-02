@@ -30,6 +30,9 @@
 @property (nonatomic, strong) void (^requestCallbackStartBlock)(NSArray * retrievedContent);
 @property (nonatomic, strong) void (^requestCallbackFinishBlock)(NSArray * retrievedContent);
 
+@property (nonatomic, strong) BOOL (^canEditRowBlock)(NSIndexPath * indexPath);
+@property (nonatomic, strong) void (^itemDeletionBlock)(NSIndexPath * indexPath);
+
 @property (nonatomic, strong) IBOutlet id<UZKWebDSClient> client;
 
 @property (nonatomic, strong) NSDictionary * parameters;
@@ -39,6 +42,7 @@
 - (void)setSectionData:(NSArray *)dataForSection0, ... NS_REQUIRES_NIL_TERMINATION;
 
 - (id)objectForIndexPath:(NSIndexPath *)indexPath;
+- (id)removeObjectAtIndexPath:(NSIndexPath *)indexPath;
 
 - (BOOL)hasNoResults;
 - (BOOL)isDoneRequestingPages;
