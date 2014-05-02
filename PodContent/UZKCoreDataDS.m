@@ -14,7 +14,11 @@
 #import "UZKContextManager.h"
 
 @interface UZKCoreDataDS ()
+
 @property (nonatomic, strong) NSFetchedResultsController * fetchedResultsController;
+
+@property (nonatomic, strong) NSString * nilItemTitle;
+
 @end
 
 @implementation UZKCoreDataDS
@@ -55,6 +59,50 @@
     _sectionNameKeyPath = sectionNameKeyPath;
     self.fetchedResultsController = nil;
 }
+
+
+#pragma mark - Nil Item
+
+- (void)setIncludesNilItemWithTitle:(NSString *)title
+{
+    _includesNilItem = YES;
+    self.nilItemTitle = title;
+}
+
+- (void)removeNilItem
+{
+    _includesNilItem = NO;
+    self.nilItemTitle = nil;
+}
+
+
+#pragma mark - PICKER
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return [[self.fetchedResultsController sections] count];
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    NSUInteger numberOfRows = [[[self.fetchedResultsController sections] objectAtIndex:component] numberOfObjects];
+    if ( self.includesNilItem )
+    {
+        numberOfRows++;
+    }
+    return numberOfRows;
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    if ( ( self.includesNilItem ) && ( row == 0 ) )
+    {
+        return self.nilItemTitle;
+    }
+    
+    return [[self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForItem:(self.includesNilItem ? row-1 : row) inSection:component]] description];
+}
+
 
 #pragma mark COLLECTION
 
@@ -162,5 +210,26 @@
     
     return _fetchedResultsController;
 }
+
+
+#pragma mark - Objects
+
+- (id)objectAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ( self.includesNilItem )
+    {
+        if ( indexPath.item == 0 )
+        {
+            return nil;
+        }
+        
+        NSIndexPath * relativeIndexPath = [NSIndexPath indexPathForItem:(indexPath.item - 1) inSection:indexPath.section];
+        
+        return [self.fetchedResultsController objectAtIndexPath:relativeIndexPath];
+    }
+    
+    return [self.fetchedResultsController objectAtIndexPath:indexPath];
+}
+
 
 @end
