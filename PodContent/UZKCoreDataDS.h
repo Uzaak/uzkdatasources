@@ -14,6 +14,7 @@
 @property (nonatomic, strong) NSString * entityName;
 
 @property (nonatomic, strong) NSString * cellIdentifier;
+@property (nonatomic, strong) void (^cellDequeueBlock)(id);
 @property (nonatomic, strong) NSString * (^reusableViewIdentifierBlock)(NSString * kind, NSIndexPath * indexPath);
 @property (nonatomic, strong) void (^reusableViewDequeueBlock)(UICollectionReusableView * reusableView, NSString * reusableViewText);
 

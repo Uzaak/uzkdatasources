@@ -147,6 +147,11 @@
     
     cell.customObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
+    if ( self.cellDequeueBlock )
+    {
+        self.cellDequeueBlock(cell);
+    }
+    
     return cell;
 }
 
@@ -172,6 +177,11 @@
     UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:self.cellIdentifier forIndexPath:indexPath];
     
     cell.customObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    if ( self.cellDequeueBlock )
+    {
+        self.cellDequeueBlock(cell);
+    }
     
     return cell;
 }
