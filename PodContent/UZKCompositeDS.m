@@ -88,6 +88,10 @@
     NSMutableArray * innerSectionCount = [@[] mutableCopy];
     
     for (id source in self.innerDataSources) {
+        if ( [source respondsToSelector:@selector(setSectionIndexOffset:)] )
+        {
+            [source setSectionIndexOffset:number];
+        }
         NSInteger numberForSection = [source numberOfSectionsInTableView:tableView];
         number += numberForSection;
         [innerSectionCount addObject:[NSNumber numberWithInteger:numberForSection]];
@@ -106,11 +110,24 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UZKCoreDataDS * ds = [self dataSourceForSection:indexPath.section];
-    NSString * identifier = ds.cellIdentifier;
-    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+    id ds = [self dataSourceForSection:indexPath.section];
+    UITableViewCell * cell;
     
-    cell.customObject = [ds.fetchedResultsController objectAtIndexPath:[self dataSourceIndexPathForIndexPath:indexPath]];
+    if ( [ds isKindOfClass:[UZKCoreDataDS class]] )
+    {
+        
+        UZKCoreDataDS * coreds = [self dataSourceForSection:indexPath.section];
+        NSString * identifier = coreds.cellIdentifier;
+        
+        cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+        
+        cell.customObject = [coreds.fetchedResultsController objectAtIndexPath:[self dataSourceIndexPathForIndexPath:indexPath]];
+        
+    }
+    else
+    {
+        cell = [ds tableView:tableView cellForRowAtIndexPath:indexPath];
+    }
     
     return cell;
 }
