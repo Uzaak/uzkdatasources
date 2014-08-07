@@ -337,7 +337,7 @@
         
         if ( self.requestCallbackStartBlock )
         {
-            self.requestCallbackStartBlock(stuff);
+            stuff = self.requestCallbackStartBlock(stuff);
         }
         
         if (![stuff count] && number == 0) {
