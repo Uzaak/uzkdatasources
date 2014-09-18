@@ -94,9 +94,6 @@
         return 1;
     }
     
-#warning Gnomes cause crashy crashy behaviour in custom layouts. This kills gnomes.
-    [self.collectionView.collectionViewLayout invalidateLayout];
-    
     return [[self.pages objectAtIndex:section] count];
 }
 

@@ -10,29 +10,29 @@
 	<string>UZKDataSources</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>8B582520-CCD7-48B6-A155-71670E70CA05</key>
+		<key>6552AEF3546D07C4D994FE98531FD30157C23482</key>
 		<string>https://bitbucket.org/Uzaak/uzkdatasources.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>UZKDataSources.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>8B582520-CCD7-48B6-A155-71670E70CA05</key>
+		<key>6552AEF3546D07C4D994FE98531FD30157C23482</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://bitbucket.org/Uzaak/uzkdatasources.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>8B582520-CCD7-48B6-A155-71670E70CA05</string>
+	<string>6552AEF3546D07C4D994FE98531FD30157C23482</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>8B582520-CCD7-48B6-A155-71670E70CA05</string>
+			<string>6552AEF3546D07C4D994FE98531FD30157C23482</string>
 			<key>IDESourceControlWCCName</key>
 			<string>UZKDataSources</string>
 		</dict>
