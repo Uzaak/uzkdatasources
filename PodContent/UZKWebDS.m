@@ -94,6 +94,11 @@
         return 1;
     }
     
+    if ( self.numberOfItemsInSectionBlock )
+    {
+        numberOfItemsInSection = self.numberOfItemsInSectionBlock(numberOfItemsInSection, section);
+    }
+    
     return [[self.pages objectAtIndex:section] count];
 }
 
