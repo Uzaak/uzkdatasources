@@ -16,6 +16,8 @@
 @property (nonatomic, weak) IBOutlet UICollectionView * collectionView;
 @property (nonatomic, weak) IBOutlet UITableView * tableView;
 
+@property (nonatomic, strong) NSInteger (^numberOfItemsInSectionBlock)(NSInteger calculatedNumber, NSInteger section);
+
 @property (nonatomic, strong) NSString * cellIdentifier;
 @property (nonatomic, strong) NSString * (^cellIdentifierBlock)(id);
 @property (nonatomic, strong) id (^customObjectBlock)(id);

@@ -101,6 +101,11 @@
         numberOfItemsInSection++; //noResults
     }
     
+    if ( self.numberOfItemsInSectionBlock )
+    {
+        numberOfItemsInSection = self.numberOfItemsInSectionBlock(numberOfItemsInSection, section);
+    }
+    
     return numberOfItemsInSection;
 }
 
