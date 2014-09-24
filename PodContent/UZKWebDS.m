@@ -93,13 +93,15 @@
     if (section == [self.pages count]) {
         return 1;
     }
+
+    NSInteger numberOfItemsInSection = [[self.pages objectAtIndex:section] count];
     
     if ( self.numberOfItemsInSectionBlock )
     {
         numberOfItemsInSection = self.numberOfItemsInSectionBlock(numberOfItemsInSection, section);
     }
     
-    return [[self.pages objectAtIndex:section] count];
+    return numberOfItemsInSection;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
