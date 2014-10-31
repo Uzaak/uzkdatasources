@@ -85,12 +85,13 @@
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    return [self.pages count] + (([self.pages count] && finished) ? 0 : 1);
+    return [self.pages count] + 1; // load more, no results, last cell standing
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    if (section == [self.pages count]) {
+    if (section == [self.pages count])
+    {
         return 1;
     }
 
@@ -106,14 +107,23 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (![self.pages count] && finished) {
+    if (![self.pages count] && finished)
+    {
         return [collectionView dequeueReusableCellWithReuseIdentifier:self.noResultsCellIdentifier forIndexPath:indexPath];
     }
     
-    if (indexPath.section - self.sectionIndexOffset >= [self.pages count]) {
-        // Posterga o "load", para evitar condições de corrida ao "fritar a tela" que travavam a carga da próxima página
-        [self performSelectorOnMainThread:@selector(loadPage:) withObject:@([self.pages count]) waitUntilDone:NO];
-        return [collectionView dequeueReusableCellWithReuseIdentifier:self.loadMoreCellIdentifier forIndexPath:indexPath];
+    if (indexPath.section - self.sectionIndexOffset >= [self.pages count])
+    {
+        if ( finished )
+        {
+            return [collectionView dequeueReusableCellWithReuseIdentifier:@"UZKWebDSLastCellStanding" forIndexPath:indexPath];
+        }
+        else
+        {
+            // Posterga o "load", para evitar condições de corrida ao "fritar a tela" que travavam a carga da próxima página
+            [self performSelectorOnMainThread:@selector(loadPage:) withObject:@([self.pages count]) waitUntilDone:NO];
+            return [collectionView dequeueReusableCellWithReuseIdentifier:self.loadMoreCellIdentifier forIndexPath:indexPath];
+        }
     }
     
     id customObject = [self objectForIndexPath:indexPath];

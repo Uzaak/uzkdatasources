@@ -14,7 +14,7 @@
 		<string>https://bitbucket.org/Uzaak/uzkdatasources.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>UZKDataSources.xcodeproj/project.xcworkspace</string>
+	<string>UZKDataSources.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>6552AEF3546D07C4D994FE98531FD30157C23482</key>

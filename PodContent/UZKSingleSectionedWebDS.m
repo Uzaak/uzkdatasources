@@ -50,6 +50,8 @@
     [_collectionView registerNib:[UINib nibWithNibName:@"UZKWebDSLoadMoreCollectionCell" bundle:nil] forCellWithReuseIdentifier:@"UZKWebDSLoadMoreCollectionCell"];
     
     [_collectionView registerNib:[UINib nibWithNibName:@"UZKWebDSNoResultsCollectionCell" bundle:nil] forCellWithReuseIdentifier:@"UZKWebDSNoResultsCollectionCell"];
+    
+    [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"UZKWebDSLastCellStanding"];
 }
 
 - (void)setTableView:(UITableView *)tableView
@@ -92,19 +94,12 @@
 {
     NSInteger numberOfItemsInSection = [self sumOfAllPages];
     
-    if ( !finished ) //not yet finished
-    {
-        numberOfItemsInSection++; //loadMore
-    }
-    else if ( numberOfItemsInSection == 0 ) //finished and has no results
-    {
-        numberOfItemsInSection++; //noResults
-    }
-    
     if ( self.numberOfItemsInSectionBlock )
     {
         numberOfItemsInSection = self.numberOfItemsInSectionBlock(numberOfItemsInSection, section);
     }
+    
+    numberOfItemsInSection++; // load more, no results, last cell standing
     
     return numberOfItemsInSection;
 }
@@ -118,9 +113,16 @@
     
     if ( indexPath.item == [self sumOfAllPages] )
     {
-        // Posterga o "load", para evitar condições de corrida ao "fritar a tela" que travavam a carga da próxima página
-        [self performSelectorOnMainThread:@selector(loadPage:) withObject:@([self.pages count]) waitUntilDone:NO];
-        return [collectionView dequeueReusableCellWithReuseIdentifier:self.loadMoreCellIdentifier forIndexPath:indexPath];
+        if ( finished )
+        {
+            return [collectionView dequeueReusableCellWithReuseIdentifier:@"UZKWebDSLastCellStanding" forIndexPath:indexPath];
+        }
+        else
+        {
+            // Posterga o "load", para evitar condições de corrida ao "fritar a tela" que travavam a carga da próxima página
+            [self performSelectorOnMainThread:@selector(loadPage:) withObject:@([self.pages count]) waitUntilDone:NO];
+            return [collectionView dequeueReusableCellWithReuseIdentifier:self.loadMoreCellIdentifier forIndexPath:indexPath];
+        }
     }
     
     id customObject = [self objectForIndexPath:indexPath];
