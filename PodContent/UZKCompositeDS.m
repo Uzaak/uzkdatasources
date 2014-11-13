@@ -16,6 +16,8 @@
 
 @property (nonatomic, strong) NSArray * innerDataSourceSections;
 
+@property (nonatomic, strong) NSMutableDictionary * cellDictionary;
+
 @end
 
 @implementation UZKCompositeDS
@@ -77,6 +79,7 @@
         cell = [ds collectionView:collectionView cellForItemAtIndexPath:indexPath];
     }
     
+    self.cellDictionary[indexPath] = cell;
     return cell;
 }
 
@@ -129,8 +132,28 @@
         cell = [ds tableView:tableView cellForRowAtIndexPath:indexPath];
     }
     
+    self.cellDictionary[indexPath] = cell;
     return cell;
 }
+
+
+#pragma mark - Cell at Index Path
+
+- (NSMutableDictionary *)cellDictionary
+{
+    if ( !_cellDictionary )
+    {
+        self.cellDictionary = [NSMutableDictionary new];
+    }
+    
+    return _cellDictionary;
+}
+
+- (UICollectionViewCell *)cellAtIndexPath:(NSIndexPath *)indexPath
+{
+    return self.cellDictionary[indexPath];
+}
+
 
 #pragma mark Generics
 

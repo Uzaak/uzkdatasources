@@ -16,4 +16,6 @@
 - (NSInteger)dataSourceSectionForSection:(NSInteger)section;
 - (NSIndexPath *)dataSourceIndexPathForIndexPath:(NSIndexPath *)indexPath;
 
+- (UICollectionViewCell *)cellAtIndexPath:(NSIndexPath *)indexPath;
+
 @end
