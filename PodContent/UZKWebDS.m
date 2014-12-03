@@ -405,6 +405,13 @@
 }
 
 
+#pragma mark - Load Mores
+
+- (void)blockNextPageLoads
+{
+    finished = YES;
+}
+
 - (void)forceLoadNextPage
 {
     [self performSelectorOnMainThread:@selector(loadPage:) withObject:@([self.pages count]) waitUntilDone:NO];

@@ -51,6 +51,8 @@
 
 - (void)resetData;
 
+- (void)blockNextPageLoads;
+
 // Forces load of next page. If you don't know what it's for, you probably don't need to use it.
 - (void)forceLoadNextPage;
 
